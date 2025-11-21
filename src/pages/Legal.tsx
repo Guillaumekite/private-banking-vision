@@ -17,12 +17,7 @@ const Legal = () => {
         
         <main className="flex-1 p-6 lg:p-8 space-y-8 max-w-7xl mx-auto">
           <div className="mb-8">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="p-3 rounded-xl bg-emerald-light/20">
-                <Scale className="w-8 h-8 text-primary" />
-              </div>
-              <h1 className="text-4xl font-black text-primary">⚖️ Legal</h1>
-            </div>
+            <h1 className="text-4xl font-black text-primary mb-4">⚖️ Legal</h1>
             <p className="text-lg font-semibold text-muted-foreground">
               Compliance and legal assistance for your business 🛡️
             </p>

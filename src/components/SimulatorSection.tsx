@@ -99,7 +99,7 @@ export const SimulatorSection = () => {
     <section className="py-20 px-6 bg-muted/30">
       <div className="container mx-auto max-w-6xl">
         <h1 className="text-4xl md:text-5xl font-bold text-center text-primary mb-4">
-          Découvrez Votre Potentiel d'Optimisation Financière
+          🎯 Découvrez Votre Potentiel d'Optimisation Financière
         </h1>
         <p className="text-xl text-center text-muted-foreground mb-4">
           Votre futur financier commence ici

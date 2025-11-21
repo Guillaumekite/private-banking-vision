@@ -89,8 +89,8 @@ export const ExpertMatching = () => {
                   <Card className="h-full border-border/50 hover:border-primary/30 transition-all hover:shadow-card">
                     <CardContent className="p-6 space-y-4">
                       <div className="flex items-start gap-3">
-                        <Avatar className="w-16 h-16 border-2 border-primary/20">
-                          <AvatarImage src={expert.photo} alt={expert.name} />
+                        <Avatar className="w-16 h-16 border-2 border-primary/20 shrink-0">
+                          <AvatarImage src={expert.photo} alt={expert.name} className="object-cover" />
                           <AvatarFallback>{expert.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                         </Avatar>
                         <div className="flex-1 min-w-0">

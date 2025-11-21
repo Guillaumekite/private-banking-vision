@@ -17,12 +17,7 @@ const Investissement = () => {
         
         <main className="flex-1 p-6 lg:p-8 space-y-8 max-w-7xl mx-auto">
           <div className="mb-8">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="p-3 rounded-xl bg-emerald-light/20">
-                <TrendingUp className="w-8 h-8 text-accent" />
-              </div>
-              <h1 className="text-4xl font-black text-primary">📈 Investment</h1>
-            </div>
+            <h1 className="text-4xl font-black text-primary mb-4">📈 Investment</h1>
             <p className="text-lg font-semibold text-muted-foreground">
               Strategies and tools to optimize your investments 💰
             </p>
