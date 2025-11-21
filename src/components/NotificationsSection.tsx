@@ -6,22 +6,22 @@ const notifications = [
   {
     icon: Mail,
     type: "Email",
-    title: "Suggestion d'Optimisation Fiscale",
-    desc: "Suite à l'évolution de la loi X, nous avons identifié une opportunité pour votre entreprise.",
+    title: "Tax Optimization Suggestion",
+    desc: "Following the evolution of law X, we have identified an opportunity for your business.",
     color: "bg-primary/10 text-primary",
   },
   {
     icon: Smartphone,
-    type: "Application Mobile",
-    title: "Opportunité d'Investissement Personnalisée",
-    desc: "Alerte marché : Une opportunité correspond à votre profil sur le marché Y.",
+    type: "Mobile App",
+    title: "Personalized Investment Opportunity",
+    desc: "Market alert: An opportunity matching your profile on market Y.",
     color: "bg-accent/10 text-accent",
   },
   {
     icon: Bell,
     type: "Email",
-    title: "Rendez-vous avec Votre Banquier Privé",
-    desc: "Rappel : Révision de votre portefeuille personnel prévue le 15 du mois.",
+    title: "Appointment with Your Private Banker",
+    desc: "Reminder: Review of your personal portfolio scheduled for the 15th of the month.",
     color: "bg-gold/10 text-gold",
   },
 ];
@@ -31,10 +31,10 @@ export const NotificationsSection = () => {
     <section className="py-20 px-6 bg-muted/30">
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-4xl font-bold text-center text-primary mb-4">
-          Un Accompagnement Proactif au Quotidien
+          Proactive Daily Support
         </h2>
         <p className="text-xl text-center text-muted-foreground mb-12">
-          Recevez des conseils personnalisés et des alertes en temps réel
+          Receive personalized advice and real-time alerts
         </p>
 
         <div className="grid md:grid-cols-3 gap-6 mb-12">
@@ -57,7 +57,7 @@ export const NotificationsSection = () => {
 
         <div className="text-center">
           <Button size="lg" className="bg-gold text-gold-foreground hover:bg-gold/90 shadow-gold font-semibold px-8 text-lg">
-            Devenir Client
+            Become a Client
           </Button>
         </div>
       </div>
