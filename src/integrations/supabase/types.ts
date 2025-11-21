@@ -23,12 +23,14 @@ export type Database = {
           expert_name: string
           expert_photo: string | null
           expert_specialization: string | null
+          guest_email: string | null
+          guest_name: string | null
           id: string
           location: string | null
           meeting_link: string | null
           status: string | null
           updated_at: string
-          user_id: string
+          user_id: string | null
         }
         Insert: {
           appointment_date: string
@@ -38,12 +40,14 @@ export type Database = {
           expert_name: string
           expert_photo?: string | null
           expert_specialization?: string | null
+          guest_email?: string | null
+          guest_name?: string | null
           id?: string
           location?: string | null
           meeting_link?: string | null
           status?: string | null
           updated_at?: string
-          user_id: string
+          user_id?: string | null
         }
         Update: {
           appointment_date?: string
@@ -53,12 +57,14 @@ export type Database = {
           expert_name?: string
           expert_photo?: string | null
           expert_specialization?: string | null
+          guest_email?: string | null
+          guest_name?: string | null
           id?: string
           location?: string | null
           meeting_link?: string | null
           status?: string | null
           updated_at?: string
-          user_id?: string
+          user_id?: string | null
         }
         Relationships: []
       }
