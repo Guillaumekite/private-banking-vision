@@ -22,17 +22,10 @@ const Patrimoine = () => {
         
         <main className="flex-1 p-6 lg:p-8 space-y-8 max-w-7xl mx-auto">
           <div className="mb-8">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="p-3 rounded-xl bg-emerald-light/20">
-                <Landmark className="w-8 h-8 text-primary" />
-              </div>
-              <div>
-              <h1 className="text-4xl font-black text-primary">💎 Wealth</h1>
-              <p className="text-lg font-semibold text-muted-foreground">
-                Global view and optimized wealth management 🚀
-              </p>
-              </div>
-            </div>
+            <h1 className="text-4xl font-black text-primary mb-4">💎 Wealth</h1>
+            <p className="text-lg font-semibold text-muted-foreground">
+              Global view and optimized wealth management 🚀
+            </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-6">

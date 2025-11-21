@@ -16,7 +16,7 @@ export const ResourcesGrid = () => {
 
   return (
     <div className="space-y-4">
-      <h3 className="text-lg font-semibold text-primary">Resources & Advice</h3>
+      <h3 className="text-lg font-bold text-primary">📚 Resources & Advice</h3>
       
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {resources.map((resource, index) => {

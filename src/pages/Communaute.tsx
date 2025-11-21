@@ -137,12 +137,7 @@ const Communaute = () => {
         
         <main className="flex-1 p-6 lg:p-8 space-y-8 max-w-7xl mx-auto">
           <div className="mb-8">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="p-3 rounded-xl bg-emerald-light/20">
-                <Users className="w-8 h-8 text-primary" />
-              </div>
-              <h1 className="text-4xl font-black text-primary">🤝 Community</h1>
-            </div>
+            <h1 className="text-4xl font-black text-primary mb-4">🤝 Community</h1>
             <p className="text-lg font-semibold text-muted-foreground">
               Connect with entrepreneurs and grow together 🚀
             </p>
@@ -209,8 +204,8 @@ const Communaute = () => {
                 {founders.map((founder) => (
                   <Card key={founder.id} className="p-4 hover:shadow-xl transition-all border-border/50 shadow-md hover:scale-105 duration-300 bg-gradient-to-b from-background to-emerald-lighter/5">
                     <div className="flex flex-col items-center text-center space-y-3">
-                      <Avatar className="w-20 h-20 border-2 border-primary/20 shadow-md">
-                        <AvatarImage src={founder.photo} alt={founder.name} />
+                      <Avatar className="w-20 h-20 border-2 border-primary/20 shadow-md shrink-0">
+                        <AvatarImage src={founder.photo} alt={founder.name} className="object-cover" />
                         <AvatarFallback>{founder.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                       </Avatar>
                       
@@ -253,7 +248,7 @@ const Communaute = () => {
                   <Card key={masterclass.id} className="p-6 hover:shadow-xl transition-all border-border/50 shadow-lg hover:scale-[1.02] duration-300 bg-gradient-to-r from-background via-emerald-lighter/5 to-background">
                     <div className="flex flex-col lg:flex-row gap-6">
                       <Avatar className="w-24 h-24 border-2 border-primary/20 shrink-0 shadow-lg">
-                        <AvatarImage src={masterclass.instructorPhoto} alt={masterclass.instructor} />
+                        <AvatarImage src={masterclass.instructorPhoto} alt={masterclass.instructor} className="object-cover" />
                         <AvatarFallback>{masterclass.instructor.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                       </Avatar>
 
