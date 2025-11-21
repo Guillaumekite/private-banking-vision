@@ -7,6 +7,8 @@ import { PatrimoineDonut } from "@/components/patrimoine/PatrimoineDonut";
 import { ProjectionTimeline } from "@/components/patrimoine/ProjectionTimeline";
 import { AnalyseBrutNet } from "@/components/patrimoine/AnalyseBrutNet";
 import { RiskHeatmap } from "@/components/patrimoine/RiskHeatmap";
+import { PlaybooksPatrimoniaux } from "@/components/patrimoine/PlaybooksPatrimoniaux";
+import { SalaireDividendesSimulator } from "@/components/patrimoine/SalaireDividendesSimulator";
 
 const Patrimoine = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -38,6 +40,8 @@ const Patrimoine = () => {
             <ProjectionTimeline />
             <AnalyseBrutNet />
             <RiskHeatmap />
+            <PlaybooksPatrimoniaux />
+            <SalaireDividendesSimulator />
           </div>
         </main>
       </div>
