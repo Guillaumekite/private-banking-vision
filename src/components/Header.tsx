@@ -26,7 +26,7 @@ export const Header = ({ onToggleSidebar }: HeaderProps) => {
           <OscarLogo />
         </div>
 
-        <div className="flex items-center gap-1 bg-muted rounded-lg p-1">
+        <div className="flex-1 flex items-center justify-center gap-1 bg-muted rounded-lg p-1">
           <button
             onClick={() => setActiveTab("pro")}
             className={`px-6 py-2 rounded-md text-sm font-bold transition-all ${
@@ -35,7 +35,7 @@ export const Header = ({ onToggleSidebar }: HeaderProps) => {
                 : "text-muted-foreground hover:text-primary"
             }`}
           >
-            💼 Professional Life
+            Professional
           </button>
           <button
             onClick={() => setActiveTab("perso")}
@@ -45,7 +45,7 @@ export const Header = ({ onToggleSidebar }: HeaderProps) => {
                 : "text-muted-foreground hover:text-primary"
             }`}
           >
-            🏠 Personal Life
+            Personal
           </button>
         </div>
 
