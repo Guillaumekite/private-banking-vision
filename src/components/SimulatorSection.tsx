@@ -101,8 +101,11 @@ export const SimulatorSection = () => {
         <h1 className="text-4xl md:text-5xl font-bold text-center text-primary mb-4">
           Découvrez Votre Potentiel d'Optimisation Financière
         </h1>
-        <p className="text-xl text-center text-muted-foreground mb-12">
+        <p className="text-xl text-center text-muted-foreground mb-4">
           Votre futur financier commence ici
+        </p>
+        <p className="text-lg text-center text-secondary font-semibold mb-12">
+          Optimisez votre patrimoine sans perdre de temps
         </p>
 
         <Card className="p-8 shadow-card mb-8">
@@ -110,19 +113,22 @@ export const SimulatorSection = () => {
             <div className="space-y-6">
               <div>
                 <Label className="text-base font-semibold mb-3 block">Situation</Label>
-                <RadioGroup value={situation} onValueChange={setSituation}>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="seul" id="seul" />
-                    <Label htmlFor="seul">Seul</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="marie" id="marie" />
-                    <Label htmlFor="marie">Marié</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="divorce" id="divorce" />
-                    <Label htmlFor="divorce">Divorcé</Label>
-                  </div>
+                <RadioGroup value={situation} onValueChange={setSituation} className="grid grid-cols-3 gap-3">
+                  {[
+                    { value: "seul", label: "Seul" },
+                    { value: "marie", label: "Marié" },
+                    { value: "divorce", label: "Divorcé" }
+                  ].map((option) => (
+                    <div key={option.value}>
+                      <RadioGroupItem value={option.value} id={option.value} className="peer sr-only" />
+                      <Label 
+                        htmlFor={option.value}
+                        className="flex items-center justify-center rounded-lg border-2 border-muted bg-popover p-3 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/10 cursor-pointer transition-all"
+                      >
+                        {option.label}
+                      </Label>
+                    </div>
+                  ))}
                 </RadioGroup>
               </div>
 
@@ -133,11 +139,16 @@ export const SimulatorSection = () => {
 
               <div>
                 <Label className="text-base font-semibold mb-3 block">Enfants</Label>
-                <RadioGroup value={enfants} onValueChange={setEnfants} className="flex gap-4">
+                <RadioGroup value={enfants} onValueChange={setEnfants} className="grid grid-cols-4 gap-3">
                   {["0", "1", "2", "3+"].map((val) => (
-                    <div key={val} className="flex items-center space-x-2">
-                      <RadioGroupItem value={val} id={`enfants-${val}`} />
-                      <Label htmlFor={`enfants-${val}`}>{val}</Label>
+                    <div key={val}>
+                      <RadioGroupItem value={val} id={`enfants-${val}`} className="peer sr-only" />
+                      <Label 
+                        htmlFor={`enfants-${val}`}
+                        className="flex items-center justify-center rounded-lg border-2 border-muted bg-popover p-3 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/10 cursor-pointer transition-all"
+                      >
+                        {val}
+                      </Label>
                     </div>
                   ))}
                 </RadioGroup>
@@ -147,11 +158,16 @@ export const SimulatorSection = () => {
             <div className="space-y-6">
               <div>
                 <Label className="text-base font-semibold mb-3 block">Entreprises</Label>
-                <RadioGroup value={entreprises} onValueChange={setEntreprises} className="flex gap-4">
+                <RadioGroup value={entreprises} onValueChange={setEntreprises} className="grid grid-cols-4 gap-3">
                   {["0", "1", "2", "3+"].map((val) => (
-                    <div key={val} className="flex items-center space-x-2">
-                      <RadioGroupItem value={val} id={`entreprises-${val}`} />
-                      <Label htmlFor={`entreprises-${val}`}>{val}</Label>
+                    <div key={val}>
+                      <RadioGroupItem value={val} id={`entreprises-${val}`} className="peer sr-only" />
+                      <Label 
+                        htmlFor={`entreprises-${val}`}
+                        className="flex items-center justify-center rounded-lg border-2 border-muted bg-popover p-3 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/10 cursor-pointer transition-all"
+                      >
+                        {val}
+                      </Label>
                     </div>
                   ))}
                 </RadioGroup>
@@ -159,19 +175,22 @@ export const SimulatorSection = () => {
 
               <div>
                 <Label className="text-base font-semibold mb-3 block">Patrimoine</Label>
-                <RadioGroup value={patrimoine} onValueChange={setPatrimoine}>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="<250k" id="pat1" />
-                    <Label htmlFor="pat1">{"< 250K €"}</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="250k-5m" id="pat2" />
-                    <Label htmlFor="pat2">250K - 5M €</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value=">5m" id="pat3" />
-                    <Label htmlFor="pat3">{"> 5M €"}</Label>
-                  </div>
+                <RadioGroup value={patrimoine} onValueChange={setPatrimoine} className="space-y-3">
+                  {[
+                    { value: "<250k", label: "< 250K €" },
+                    { value: "250k-5m", label: "250K - 5M €" },
+                    { value: ">5m", label: "> 5M €" }
+                  ].map((option) => (
+                    <div key={option.value}>
+                      <RadioGroupItem value={option.value} id={`pat-${option.value}`} className="peer sr-only" />
+                      <Label 
+                        htmlFor={`pat-${option.value}`}
+                        className="flex items-center justify-center rounded-lg border-2 border-muted bg-popover p-3 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/10 cursor-pointer transition-all"
+                      >
+                        {option.label}
+                      </Label>
+                    </div>
+                  ))}
                 </RadioGroup>
               </div>
             </div>
