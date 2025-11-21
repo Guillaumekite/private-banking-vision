@@ -5,6 +5,7 @@ import { MessageCircle, Calendar, Star } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { useState } from "react";
+import { BookingDialog } from "./BookingDialog";
 import {
   Carousel,
   CarouselContent,
@@ -58,6 +59,18 @@ const experts = [
 
 export const ExpertMatching = () => {
   const [userInput, setUserInput] = useState("");
+  const [selectedExpert, setSelectedExpert] = useState<typeof experts[0] | null>(null);
+  const [bookingDialogOpen, setBookingDialogOpen] = useState(false);
+
+  const handleBookClick = (expert: typeof experts[0]) => {
+    setSelectedExpert(expert);
+    setBookingDialogOpen(true);
+  };
+
+  const handleBookingComplete = () => {
+    // Refresh appointments - the parent component will handle this
+    window.location.reload();
+  };
 
   return (
     <Card className="border-primary/20 shadow-card bg-gradient-to-br from-background to-emerald-lighter/10">
@@ -121,7 +134,7 @@ export const ExpertMatching = () => {
                           <MessageCircle className="w-4 h-4" />
                           Message
                         </Button>
-                        <Button size="sm" className="flex-1 gap-2">
+                        <Button size="sm" className="flex-1 gap-2" onClick={() => handleBookClick(expert)}>
                           <Calendar className="w-4 h-4" />
                           Book
                         </Button>
@@ -136,6 +149,13 @@ export const ExpertMatching = () => {
           </Carousel>
         </div>
       </CardContent>
+
+      <BookingDialog
+        expert={selectedExpert}
+        open={bookingDialogOpen}
+        onOpenChange={setBookingDialogOpen}
+        onBookingComplete={handleBookingComplete}
+      />
     </Card>
   );
 };

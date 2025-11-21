@@ -14,7 +14,54 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      appointments: {
+        Row: {
+          appointment_date: string
+          appointment_time: string
+          created_at: string
+          expert_id: number
+          expert_name: string
+          expert_photo: string | null
+          expert_specialization: string | null
+          id: string
+          location: string | null
+          meeting_link: string | null
+          status: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          appointment_date: string
+          appointment_time: string
+          created_at?: string
+          expert_id: number
+          expert_name: string
+          expert_photo?: string | null
+          expert_specialization?: string | null
+          id?: string
+          location?: string | null
+          meeting_link?: string | null
+          status?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          appointment_date?: string
+          appointment_time?: string
+          created_at?: string
+          expert_id?: number
+          expert_name?: string
+          expert_photo?: string | null
+          expert_specialization?: string | null
+          id?: string
+          location?: string | null
+          meeting_link?: string | null
+          status?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
