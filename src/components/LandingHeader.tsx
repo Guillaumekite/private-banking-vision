@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { OscarLogo } from "./OscarLogo";
+import { WiseConnectLogo } from "./WiseConnectLogo";
 
 export const LandingHeader = () => {
   const navigate = useNavigate();
@@ -8,7 +8,7 @@ export const LandingHeader = () => {
   return (
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border/50">
       <div className="container mx-auto flex h-20 items-center justify-between px-6">
-        <OscarLogo className="scale-125" />
+        <WiseConnectLogo className="scale-125" />
 
         <div className="flex items-center gap-4">
           <Button 

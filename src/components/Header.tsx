@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Bell, User, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { OscarLogo } from "./OscarLogo";
+import { WiseConnectLogo } from "./WiseConnectLogo";
 
 interface HeaderProps {
   onToggleSidebar: () => void;
@@ -23,7 +23,7 @@ export const Header = ({ onToggleSidebar }: HeaderProps) => {
             <Menu className="h-5 w-5" />
           </Button>
           
-          <OscarLogo />
+          <WiseConnectLogo />
         </div>
 
         <div className="inline-flex items-center gap-1 bg-muted rounded-lg p-1 max-w-[360px]">
