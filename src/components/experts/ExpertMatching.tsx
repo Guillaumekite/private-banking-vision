@@ -61,6 +61,7 @@ export const ExpertMatching = () => {
   const [userInput, setUserInput] = useState("");
   const [selectedExpert, setSelectedExpert] = useState<typeof experts[0] | null>(null);
   const [bookingDialogOpen, setBookingDialogOpen] = useState(false);
+  const [filteredExperts, setFilteredExperts] = useState(experts);
 
   const handleBookClick = (expert: typeof experts[0]) => {
     setSelectedExpert(expert);
@@ -68,8 +69,26 @@ export const ExpertMatching = () => {
   };
 
   const handleBookingComplete = () => {
-    // Refresh appointments - the parent component will handle this
     window.location.reload();
+  };
+
+  const handleFindExpert = () => {
+    if (!userInput.trim()) {
+      setFilteredExperts(experts);
+      return;
+    }
+
+    const searchTerms = userInput.toLowerCase();
+    const filtered = experts.filter(expert => {
+      const matchSpecialization = expert.specialization.toLowerCase().includes(searchTerms);
+      const matchTags = expert.tags.some(tag => tag.toLowerCase().includes(searchTerms));
+      const matchName = expert.name.toLowerCase().includes(searchTerms);
+      const matchBio = expert.bio.toLowerCase().includes(searchTerms);
+      
+      return matchSpecialization || matchTags || matchName || matchBio;
+    });
+
+    setFilteredExperts(filtered.length > 0 ? filtered : experts);
   };
 
   return (
@@ -86,7 +105,7 @@ export const ExpertMatching = () => {
             onChange={(e) => setUserInput(e.target.value)}
             className="min-h-[120px] resize-none"
           />
-          <Button className="w-full sm:w-auto gap-2 font-bold">
+          <Button className="w-full sm:w-auto gap-2 font-bold" onClick={handleFindExpert}>
             <MessageCircle className="w-4 h-4" />
             🔍 Find my expert
           </Button>
@@ -97,7 +116,7 @@ export const ExpertMatching = () => {
           
           <Carousel className="w-full">
             <CarouselContent>
-              {experts.map((expert) => (
+              {filteredExperts.map((expert) => (
                 <CarouselItem key={expert.id} className="md:basis-1/2 lg:basis-1/3">
                   <Card className="h-full border-border/50 hover:border-primary/30 transition-all hover:shadow-card">
                     <CardContent className="p-6 space-y-4">
