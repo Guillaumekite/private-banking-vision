@@ -4,16 +4,6 @@ import { Button } from "@/components/ui/button";
 export const FloatingButtons = () => {
   return (
     <>
-      {/* RDV Button */}
-      <Button
-        className="fixed right-6 top-1/2 -translate-y-1/2 z-30 bg-gold hover:bg-gold/90 text-gold-foreground shadow-gold flex flex-col items-center gap-2 py-6 px-4 h-auto"
-      >
-        <Calendar className="w-5 h-5" />
-        <span className="text-xs font-semibold whitespace-nowrap [writing-mode:vertical-rl] rotate-180">
-          My Advisor
-        </span>
-      </Button>
-
       {/* Chatbot */}
       <Button
         size="icon"

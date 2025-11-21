@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const upcomingAppointment = {
   expertName: "Marie Dubois",
-  expertPhoto: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150",
+  expertPhoto: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150",
   specialization: "Tax & Wealth",
   date: "January 15, 2025",
   time: "2:00 PM - 3:00 PM",

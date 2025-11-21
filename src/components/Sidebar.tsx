@@ -14,7 +14,7 @@ const menuItems = [
   { icon: BookOpen, label: "Resources", path: "/patrimoine" },
   { icon: Users, label: "Community", path: "/communaute" },
   { icon: Calculator, label: "Simulator", path: "/investissement" },
-  { icon: UserCircle, label: "Experts", path: "/experts" },
+  { icon: UserCircle, label: "Appointments", path: "/experts" },
 ];
 
 export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
