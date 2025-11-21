@@ -2,8 +2,10 @@ import { Header } from "@/components/Header";
 import { Sidebar } from "@/components/Sidebar";
 import { FloatingButtons } from "@/components/FloatingButtons";
 import { useState } from "react";
-import { Card } from "@/components/ui/card";
-import { Users } from "lucide-react";
+import { Calendar } from "lucide-react";
+import { AppointmentCalendar } from "@/components/experts/AppointmentCalendar";
+import { ExpertMatching } from "@/components/experts/ExpertMatching";
+import { AppointmentHistory } from "@/components/experts/AppointmentHistory";
 
 const Experts = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -19,20 +21,20 @@ const Experts = () => {
           <div className="mb-8">
             <div className="flex items-center gap-4 mb-4">
               <div className="p-3 rounded-xl bg-primary/10">
-                <Users className="w-8 h-8 text-primary" />
+                <Calendar className="w-8 h-8 text-primary" />
               </div>
-              <h1 className="text-4xl font-bold text-primary">Experts</h1>
+              <h1 className="text-4xl font-bold text-primary">Vos Rendez-vous</h1>
             </div>
             <p className="text-lg text-muted-foreground">
-              Accédez rapidement aux meilleurs conseils
+              Gérez vos consultations et trouvez l'expert idéal
             </p>
           </div>
 
-          <Card className="p-8">
-            <p className="text-center text-muted-foreground">
-              Section Experts en construction avec matching et prise de RDV à venir
-            </p>
-          </Card>
+          <div className="space-y-8">
+            <AppointmentCalendar />
+            <ExpertMatching />
+            <AppointmentHistory />
+          </div>
         </main>
       </div>
 
