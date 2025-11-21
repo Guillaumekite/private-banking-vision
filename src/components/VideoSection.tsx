@@ -6,10 +6,10 @@ export const VideoSection = () => {
     <section className="py-20 px-6 bg-background">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-4xl font-bold text-center text-primary mb-4">
-          BNP Paribas Banque Privée
+          BNP Paribas Private Bank
         </h2>
         <p className="text-xl text-center text-muted-foreground mb-12">
-          Votre Partenaire pour la Réussite Entrepreneuriale
+          Your Partner for Entrepreneurial Success
         </p>
 
         <Card className="relative overflow-hidden shadow-card group cursor-pointer">
@@ -20,8 +20,8 @@ export const VideoSection = () => {
           </div>
           <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent flex items-end p-8">
             <div className="text-white">
-              <h3 className="text-2xl font-bold mb-2">Découvrez Comment Nous Accompagnons Votre Croissance</h3>
-              <p className="text-white/90">Un accompagnement sur-mesure pour les entrepreneurs ambitieux</p>
+              <h3 className="text-2xl font-bold mb-2">Discover How We Support Your Growth</h3>
+              <p className="text-white/90">Tailored support for ambitious entrepreneurs</p>
             </div>
           </div>
         </Card>

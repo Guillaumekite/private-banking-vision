@@ -16,61 +16,61 @@ const getRecommendations = (age: number, entreprises: string, situation: string,
   const isSenior = ageVal >= 60;
   const highPatrimony = patrimoine === ">5m" || patrimoine === "250k-5m";
 
-  // Logique pour plusieurs entreprises
+  // Logic for multiple businesses
   if (hasMultipleEntreprises) {
     recommendations.push(
-      { icon: Building2, title: "Création de Holding", desc: "Optimisez la gestion de vos entreprises" },
-      { icon: TrendingUp, title: "Optimisation des Flux", desc: "Structurez les dividendes et rémunérations" }
+      { icon: Building2, title: "Holding Creation", desc: "Optimize the management of your businesses" },
+      { icon: TrendingUp, title: "Flow Optimization", desc: "Structure dividends and compensation" }
     );
   }
 
-  // Logique pour une entreprise + âge mûr/senior
+  // Logic for one business + mature/senior age
   if (hasOneEntreprise && (isMature || isSenior)) {
     recommendations.push(
-      { icon: Shield, title: "Pacte Dutreil", desc: "Préparez la transmission de votre entreprise" }
+      { icon: Shield, title: "Dutreil Pact", desc: "Prepare the transmission of your business" }
     );
   }
 
-  // Logique patrimoine + âge
+  // Logic wealth + age
   if (highPatrimony && isYoung) {
     recommendations.push(
-      { icon: TrendingUp, title: "Stratégie d'Investissement Actions", desc: "Profitez de votre horizon long terme" }
+      { icon: TrendingUp, title: "Stock Investment Strategy", desc: "Take advantage of your long-term horizon" }
     );
   }
 
   if (highPatrimony && isSenior) {
     recommendations.push(
-      { icon: Users, title: "Stratégie de Transmission", desc: "Optimisez la transmission familiale" },
-      { icon: Briefcase, title: "Préparation Retraite", desc: "Sécurisez votre avenir" }
+      { icon: Users, title: "Transmission Strategy", desc: "Optimize family transmission" },
+      { icon: Briefcase, title: "Retirement Preparation", desc: "Secure your future" }
     );
   }
 
-  // Optimisation fiscale selon patrimoine
+  // Tax optimization based on wealth
   if (patrimoine === ">5m") {
     recommendations.push(
-      { icon: PiggyBank, title: "Optimisation Fiscale Avancée", desc: "Structuration patrimoniale complexe" }
+      { icon: PiggyBank, title: "Advanced Tax Optimization", desc: "Complex wealth structuring" }
     );
   } else if (highPatrimony) {
     recommendations.push(
-      { icon: PiggyBank, title: "Optimisation Fiscale", desc: "Réduisez votre charge fiscale légalement" }
+      { icon: PiggyBank, title: "Tax Optimization", desc: "Reduce your tax burden legally" }
     );
   }
 
-  // Protection patrimoniale générale
+  // General wealth protection
   if (situation === "marie" || situation === "divorce") {
     recommendations.push(
-      { icon: Shield, title: "Protection Patrimoniale", desc: "Sécurisez votre situation familiale" }
+      { icon: Shield, title: "Wealth Protection", desc: "Secure your family situation" }
     );
   }
 
-  // Diversification pour patrimoine moyen/élevé
+  // Diversification for medium/high wealth
   if (isMature && highPatrimony) {
     recommendations.push(
-      { icon: TrendingUp, title: "Diversification Internationale", desc: "Élargissez vos horizons" }
+      { icon: TrendingUp, title: "International Diversification", desc: "Broaden your horizons" }
     );
   }
 
-  // Limiter à 3-4 recommandations
+  // Limit to 3-4 recommendations
   return recommendations.slice(0, 4);
 };
 
@@ -83,9 +83,9 @@ export const SimulatorSection = () => {
   const [showResults, setShowResults] = useState(false);
 
   const getProfile = () => {
-    if (age[0] < 35) return "Jeune Entrepreneur avec Patrimoine en Croissance";
-    if (age[0] >= 35 && age[0] < 55) return "Entrepreneur Établi avec Famille";
-    return "Entrepreneur Senior à Patrimoine Consolidé";
+    if (age[0] < 35) return "Young Entrepreneur with Growing Wealth";
+    if (age[0] >= 35 && age[0] < 55) return "Established Entrepreneur with Family";
+    return "Senior Entrepreneur with Consolidated Wealth";
   };
 
   const handleSimulate = () => {
@@ -99,25 +99,25 @@ export const SimulatorSection = () => {
     <section className="py-20 px-6 bg-muted/30">
       <div className="container mx-auto max-w-6xl">
         <h1 className="text-4xl md:text-5xl font-bold text-center text-primary mb-4">
-          🎯 Découvrez Votre Potentiel d'Optimisation Financière
+          🎯 Discover Your Financial Optimization Potential
         </h1>
         <p className="text-xl text-center text-muted-foreground mb-4">
-          Votre futur financier commence ici
+          Your financial future starts here
         </p>
         <p className="text-lg text-center text-secondary font-semibold mb-12">
-          Optimisez votre patrimoine sans perdre de temps
+          Optimize your wealth without wasting time
         </p>
 
         <Card className="p-8 shadow-card mb-8">
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-6">
               <div>
-                <Label className="text-base font-semibold mb-3 block">Situation</Label>
+                <Label className="text-base font-semibold mb-3 block">Marital Status</Label>
                 <RadioGroup value={situation} onValueChange={setSituation} className="grid grid-cols-3 gap-3">
                   {[
-                    { value: "seul", label: "Seul" },
-                    { value: "marie", label: "Marié" },
-                    { value: "divorce", label: "Divorcé" }
+                    { value: "seul", label: "Single" },
+                    { value: "marie", label: "Married" },
+                    { value: "divorce", label: "Divorced" }
                   ].map((option) => (
                     <div key={option.value}>
                       <RadioGroupItem value={option.value} id={option.value} className="peer sr-only" />
@@ -133,12 +133,12 @@ export const SimulatorSection = () => {
               </div>
 
               <div>
-                <Label className="text-base font-semibold mb-3 block">Âge : {age[0]} ans</Label>
+                <Label className="text-base font-semibold mb-3 block">Age: {age[0]} years</Label>
                 <Slider value={age} onValueChange={setAge} min={25} max={75} step={1} />
               </div>
 
               <div>
-                <Label className="text-base font-semibold mb-3 block">Enfants</Label>
+                <Label className="text-base font-semibold mb-3 block">Children</Label>
                 <RadioGroup value={enfants} onValueChange={setEnfants} className="grid grid-cols-4 gap-3">
                   {["0", "1", "2", "3+"].map((val) => (
                     <div key={val}>
@@ -157,7 +157,7 @@ export const SimulatorSection = () => {
 
             <div className="space-y-6">
               <div>
-                <Label className="text-base font-semibold mb-3 block">Entreprises</Label>
+                <Label className="text-base font-semibold mb-3 block">Businesses</Label>
                 <RadioGroup value={entreprises} onValueChange={setEntreprises} className="grid grid-cols-4 gap-3">
                   {["0", "1", "2", "3+"].map((val) => (
                     <div key={val}>
@@ -174,7 +174,7 @@ export const SimulatorSection = () => {
               </div>
 
               <div>
-                <Label className="text-base font-semibold mb-3 block">Patrimoine</Label>
+                <Label className="text-base font-semibold mb-3 block">Net Worth</Label>
                 <RadioGroup value={patrimoine} onValueChange={setPatrimoine} className="space-y-3">
                   {[
                     { value: "<250k", label: "< 250K €" },
@@ -202,7 +202,7 @@ export const SimulatorSection = () => {
               size="lg"
               className="bg-gradient-emerald text-white hover:opacity-90 transition-opacity px-12"
             >
-              Simuler mon Optimisation
+              Simulate My Optimization
             </Button>
           </div>
         </Card>
@@ -210,7 +210,7 @@ export const SimulatorSection = () => {
         {showResults && (
           <div className="animate-fade-in">
             <div className="bg-gradient-emerald text-white p-8 rounded-lg shadow-card mb-8">
-              <h2 className="text-3xl font-bold mb-2">Votre Profil d'Optimisation :</h2>
+              <h2 className="text-3xl font-bold mb-2">Your Optimization Profile:</h2>
               <p className="text-xl opacity-95">{profile}</p>
             </div>
 
