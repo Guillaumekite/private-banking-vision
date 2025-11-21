@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Bell, User, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { OscarLogo } from "./OscarLogo";
 
 interface HeaderProps {
   onToggleSidebar: () => void;
@@ -22,36 +23,29 @@ export const Header = ({ onToggleSidebar }: HeaderProps) => {
             <Menu className="h-5 w-5" />
           </Button>
           
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">BP</span>
-            </div>
-            <span className="hidden md:block text-sm font-semibold text-primary">
-              Banque Privée
-            </span>
-          </div>
+          <OscarLogo />
         </div>
 
         <div className="flex items-center gap-1 bg-muted rounded-lg p-1">
           <button
             onClick={() => setActiveTab("pro")}
-            className={`px-6 py-2 rounded-md text-sm font-medium transition-all ${
+            className={`px-6 py-2 rounded-md text-sm font-bold transition-all ${
               activeTab === "pro"
                 ? "bg-card text-primary shadow-soft"
                 : "text-muted-foreground hover:text-primary"
             }`}
           >
-            Vie Professionnelle
+            💼 Vie Professionnelle
           </button>
           <button
             onClick={() => setActiveTab("perso")}
-            className={`px-6 py-2 rounded-md text-sm font-medium transition-all ${
+            className={`px-6 py-2 rounded-md text-sm font-bold transition-all ${
               activeTab === "perso"
                 ? "bg-card text-primary shadow-soft"
                 : "text-muted-foreground hover:text-primary"
             }`}
           >
-            Vie Personnelle
+            🏠 Vie Personnelle
           </button>
         </div>
 
