@@ -2,8 +2,8 @@ import { Header } from "@/components/Header";
 import { Sidebar } from "@/components/Sidebar";
 import { FloatingButtons } from "@/components/FloatingButtons";
 import { useState } from "react";
-import { Card } from "@/components/ui/card";
 import { TrendingUp } from "lucide-react";
+import { QuizProfil } from "@/components/investissement/QuizProfil";
 
 const Investissement = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -28,11 +28,11 @@ const Investissement = () => {
             </p>
           </div>
 
-          <Card className="p-8">
-            <p className="text-center text-muted-foreground">
-              Section Investissement en construction avec modules interactifs à venir
-            </p>
-          </Card>
+          <div className="grid lg:grid-cols-2 gap-6">
+            <div className="lg:col-span-2">
+              <QuizProfil />
+            </div>
+          </div>
         </main>
       </div>
 
