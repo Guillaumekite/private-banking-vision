@@ -1,16 +1,19 @@
 import { Card } from "@/components/ui/card";
 import { TrendingUp, Scale, FileText, Calculator, Users, Landmark } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const resources = [
-  { icon: TrendingUp, title: "Investissement", color: "text-accent" },
-  { icon: Scale, title: "Légal", color: "text-primary" },
-  { icon: FileText, title: "Fiscalité", color: "text-secondary" },
-  { icon: Calculator, title: "Simulation", color: "text-accent" },
-  { icon: Users, title: "Experts", color: "text-primary" },
-  { icon: Landmark, title: "Patrimoine", color: "text-secondary" },
+  { icon: TrendingUp, title: "Investissement", color: "text-accent", path: "/investissement" },
+  { icon: Scale, title: "Légal", color: "text-primary", path: "/legal" },
+  { icon: FileText, title: "Fiscalité", color: "text-secondary", path: "/fiscalite" },
+  { icon: Calculator, title: "Simulation", color: "text-accent", path: "/" },
+  { icon: Users, title: "Experts", color: "text-primary", path: "/experts" },
+  { icon: Landmark, title: "Patrimoine", color: "text-secondary", path: "/patrimoine" },
 ];
 
 export const ResourcesGrid = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="space-y-4">
       <h3 className="text-lg font-semibold text-primary">Ressources et Conseils</h3>
@@ -21,6 +24,7 @@ export const ResourcesGrid = () => {
           return (
             <Card 
               key={index}
+              onClick={() => navigate(resource.path)}
               className="p-6 shadow-soft hover:shadow-card transition-all duration-300 cursor-pointer group border-border/50"
             >
               <div className="flex flex-col items-center text-center space-y-3">
