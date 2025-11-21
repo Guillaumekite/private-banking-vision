@@ -2,8 +2,11 @@ import { Header } from "@/components/Header";
 import { Sidebar } from "@/components/Sidebar";
 import { FloatingButtons } from "@/components/FloatingButtons";
 import { useState } from "react";
-import { Card } from "@/components/ui/card";
 import { Landmark } from "lucide-react";
+import { PatrimoineDonut } from "@/components/patrimoine/PatrimoineDonut";
+import { ProjectionTimeline } from "@/components/patrimoine/ProjectionTimeline";
+import { AnalyseBrutNet } from "@/components/patrimoine/AnalyseBrutNet";
+import { RiskHeatmap } from "@/components/patrimoine/RiskHeatmap";
 
 const Patrimoine = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -21,18 +24,21 @@ const Patrimoine = () => {
               <div className="p-3 rounded-xl bg-primary/10">
                 <Landmark className="w-8 h-8 text-primary" />
               </div>
-              <h1 className="text-4xl font-bold text-primary">Patrimoine</h1>
+              <div>
+                <h1 className="text-4xl font-bold text-primary">Patrimoine</h1>
+                <p className="text-lg text-muted-foreground">
+                  Vue globale et gestion optimisée de votre patrimoine
+                </p>
+              </div>
             </div>
-            <p className="text-lg text-muted-foreground">
-              Vue globale et gestion optimisée de votre patrimoine
-            </p>
           </div>
 
-          <Card className="p-8">
-            <p className="text-center text-muted-foreground">
-              Section Patrimoine en construction avec modules interactifs à venir
-            </p>
-          </Card>
+          <div className="grid lg:grid-cols-2 gap-6">
+            <PatrimoineDonut />
+            <ProjectionTimeline />
+            <AnalyseBrutNet />
+            <RiskHeatmap />
+          </div>
         </main>
       </div>
 
