@@ -3,10 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Shield, TrendingUp, AlertTriangle } from "lucide-react";
 
 const riskCategories = [
-  { name: "Immobilier", risk: 3, amount: 450000, icon: Shield, recommendation: "Risque faible, diversification immobilière recommandée" },
-  { name: "Actions", risk: 7, amount: 280000, icon: TrendingUp, recommendation: "Risque élevé, envisager des ETF plus stables" },
-  { name: "Assurance Vie", risk: 2, amount: 180000, icon: Shield, recommendation: "Très sécurisé, performance modérée" },
-  { name: "Liquidités", risk: 1, amount: 90000, icon: Shield, recommendation: "Aucun risque, rendement faible" },
+  { name: "Real Estate", risk: 3, amount: 450000, icon: Shield, recommendation: "Low risk, real estate diversification recommended" },
+  { name: "Stocks", risk: 7, amount: 280000, icon: TrendingUp, recommendation: "High risk, consider more stable ETFs" },
+  { name: "Life Insurance", risk: 2, amount: 180000, icon: Shield, recommendation: "Very secure, moderate performance" },
+  { name: "Cash", risk: 1, amount: 90000, icon: Shield, recommendation: "No risk, low yield" },
 ];
 
 const getRiskColor = (risk: number) => {
@@ -16,19 +16,19 @@ const getRiskColor = (risk: number) => {
 };
 
 const getRiskLabel = (risk: number) => {
-  if (risk <= 3) return "Faible";
-  if (risk <= 6) return "Modéré";
-  return "Élevé";
+  if (risk <= 3) return "Low";
+  if (risk <= 6) return "Moderate";
+  return "High";
 };
 
 export const RiskHeatmap = () => {
   return (
     <Card className="p-6">
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-xl font-bold text-primary">Répartition du Risque</h3>
+        <h3 className="text-xl font-bold text-primary">Risk Distribution</h3>
         <Button variant="outline" size="sm">
           <AlertTriangle className="w-4 h-4 mr-2" />
-          Ajuster
+          Adjust
         </Button>
       </div>
 
@@ -48,7 +48,7 @@ export const RiskHeatmap = () => {
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className="text-sm font-semibold text-primary">Risque: {getRiskLabel(category.risk)}</div>
+                  <div className="text-sm font-semibold text-primary">Risk: {getRiskLabel(category.risk)}</div>
                   <div className="text-xs text-muted-foreground">{category.risk}/10</div>
                 </div>
               </div>
@@ -69,14 +69,14 @@ export const RiskHeatmap = () => {
       </div>
 
       <div className="mt-6 p-4 bg-gradient-emerald/10 rounded-lg border border-secondary/20">
-        <div className="font-semibold text-primary mb-2">Niveau de Risque Global</div>
+        <div className="font-semibold text-primary mb-2">Overall Risk Level</div>
         <div className="flex items-center gap-3">
           <div className="flex-1 h-3 bg-muted rounded-full overflow-hidden">
             <div className="h-full bg-gradient-to-r from-secondary via-gold to-destructive" style={{ width: "48%" }} />
           </div>
           <span className="font-bold text-primary">4.8/10</span>
         </div>
-        <div className="text-sm text-muted-foreground mt-2">Profil équilibré avec une légère surpondération en actions</div>
+        <div className="text-sm text-muted-foreground mt-2">Balanced profile with slight overweight in stocks</div>
       </div>
     </Card>
   );

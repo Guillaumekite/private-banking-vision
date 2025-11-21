@@ -21,10 +21,10 @@ const Investissement = () => {
               <div className="p-3 rounded-xl bg-emerald-light/20">
                 <TrendingUp className="w-8 h-8 text-accent" />
               </div>
-              <h1 className="text-4xl font-black text-primary">📈 Investissement</h1>
+              <h1 className="text-4xl font-black text-primary">📈 Investment</h1>
             </div>
             <p className="text-lg font-semibold text-muted-foreground">
-              Stratégies et outils pour optimiser vos investissements 💰
+              Strategies and tools to optimize your investments 💰
             </p>
           </div>
 

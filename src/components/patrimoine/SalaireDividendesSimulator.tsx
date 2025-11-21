@@ -25,7 +25,7 @@ export const SalaireDividendesSimulator = () => {
   return (
     <Card className="p-6">
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-xl font-bold text-primary">Salaire vs Dividendes</h3>
+        <h3 className="text-xl font-bold text-primary">Salary vs Dividends</h3>
         <Badge variant="outline" className="border-secondary text-secondary">
           <ArrowRightLeft className="w-4 h-4 mr-1" />
           Battle Mode
@@ -34,15 +34,15 @@ export const SalaireDividendesSimulator = () => {
 
       <div className="mb-6">
         <div className="flex justify-between items-center mb-2">
-          <span className="text-sm text-muted-foreground">Répartition</span>
-          <span className="font-semibold text-primary">{ratio[0]}% Salaire / {100 - ratio[0]}% Dividendes</span>
+          <span className="text-sm text-muted-foreground">Distribution</span>
+          <span className="font-semibold text-primary">{ratio[0]}% Salary / {100 - ratio[0]}% Dividends</span>
         </div>
         <Slider value={ratio} onValueChange={setRatio} min={0} max={100} step={5} />
       </div>
 
       <div className="grid md:grid-cols-2 gap-4 mb-6">
         <div className="p-4 rounded-lg bg-primary/5 border-2 border-primary/20">
-          <div className="text-sm text-muted-foreground mb-1">Salaire Brut</div>
+          <div className="text-sm text-muted-foreground mb-1">Gross Salary</div>
           <div className="text-2xl font-bold text-primary mb-2">{(salaire / 1000).toFixed(0)}K €</div>
           <div className="space-y-1 text-xs text-muted-foreground">
             <div className="flex justify-between">
@@ -50,7 +50,7 @@ export const SalaireDividendesSimulator = () => {
               <span className="text-destructive">-{(chargesSalaire / 1000).toFixed(0)}K €</span>
             </div>
             <div className="flex justify-between">
-              <span>- Impôts</span>
+              <span>- Taxes</span>
               <span className="text-destructive">-{(impotSalaire / 1000).toFixed(0)}K €</span>
             </div>
             <div className="flex justify-between font-semibold pt-1 border-t">
@@ -82,7 +82,7 @@ export const SalaireDividendesSimulator = () => {
           <span className="text-2xl font-bold text-primary">{(netTotal / 1000).toFixed(0)}K €</span>
         </div>
         <div className="flex justify-between items-center text-sm">
-          <span className="text-muted-foreground">Économie fiscale potentielle</span>
+          <span className="text-muted-foreground">Potential tax savings</span>
           <span className="font-semibold text-secondary">+{Math.abs(economie / 1000).toFixed(1)}K €</span>
         </div>
       </div>

@@ -4,21 +4,21 @@ import { ArrowRight, Calendar, TrendingUp, Award } from "lucide-react";
 const newsItems = [
   {
     icon: Calendar,
-    title: "Webinar Stratégie",
-    description: "Optimisation fiscale 2025",
-    date: "15 Jan",
+    title: "Strategy Webinar",
+    description: "2025 Tax Optimization",
+    date: "Jan 15",
   },
   {
     icon: TrendingUp,
-    title: "Marchés",
-    description: "Perspectives T1 2025",
-    date: "12 Jan",
+    title: "Markets",
+    description: "Q1 2025 Outlook",
+    date: "Jan 12",
   },
   {
     icon: Award,
-    title: "Événement",
-    description: "Forum Entrepreneurs",
-    date: "20 Jan",
+    title: "Event",
+    description: "Entrepreneurs Forum",
+    date: "Jan 20",
   },
 ];
 
@@ -26,9 +26,9 @@ export const NewsCarousel = () => {
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <h3 className="text-lg font-semibold text-primary">En ce moment</h3>
+        <h3 className="text-lg font-semibold text-primary">Right Now</h3>
         <button className="text-sm text-secondary hover:text-accent flex items-center gap-1 transition-colors">
-          Voir tout
+          View All
           <ArrowRight className="w-4 h-4" />
         </button>
       </div>

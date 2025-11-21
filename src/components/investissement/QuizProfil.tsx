@@ -9,20 +9,20 @@ import { Target } from "lucide-react";
 const questions = [
   {
     id: 1,
-    question: "Quel est votre horizon d'investissement ?",
+    question: "What is your investment horizon?",
     options: [
-      { value: "court", label: "< 3 ans", score: 1 },
-      { value: "moyen", label: "3-7 ans", score: 2 },
-      { value: "long", label: "> 7 ans", score: 3 },
+      { value: "short", label: "< 3 years", score: 1 },
+      { value: "medium", label: "3-7 years", score: 2 },
+      { value: "long", label: "> 7 years", score: 3 },
     ],
   },
   {
     id: 2,
-    question: "Quelle perte maximale acceptez-vous ?",
+    question: "What maximum loss do you accept?",
     options: [
-      { value: "faible", label: "< 5%", score: 1 },
-      { value: "moyen", label: "5-15%", score: 2 },
-      { value: "fort", label: "> 15%", score: 3 },
+      { value: "low", label: "< 5%", score: 1 },
+      { value: "medium", label: "5-15%", score: 2 },
+      { value: "high", label: "> 15%", score: 3 },
     ],
   },
 ];
@@ -30,22 +30,22 @@ const questions = [
 const getAllocationData = (score: number) => {
   if (score <= 3) {
     return [
-      { name: "Fonds Euro", value: 60, color: "hsl(var(--primary))" },
-      { name: "Obligations", value: 30, color: "hsl(var(--secondary))" },
-      { name: "Actions", value: 10, color: "hsl(var(--accent))" },
+      { name: "Euro Funds", value: 60, color: "hsl(var(--primary))" },
+      { name: "Bonds", value: 30, color: "hsl(var(--secondary))" },
+      { name: "Stocks", value: 10, color: "hsl(var(--accent))" },
     ];
   }
   if (score <= 5) {
     return [
-      { name: "Fonds Euro", value: 30, color: "hsl(var(--primary))" },
-      { name: "Obligations", value: 30, color: "hsl(var(--secondary))" },
-      { name: "Actions", value: 40, color: "hsl(var(--accent))" },
+      { name: "Euro Funds", value: 30, color: "hsl(var(--primary))" },
+      { name: "Bonds", value: 30, color: "hsl(var(--secondary))" },
+      { name: "Stocks", value: 40, color: "hsl(var(--accent))" },
     ];
   }
   return [
-    { name: "Fonds Euro", value: 10, color: "hsl(var(--primary))" },
-    { name: "Obligations", value: 20, color: "hsl(var(--secondary))" },
-    { name: "Actions", value: 70, color: "hsl(var(--accent))" },
+    { name: "Euro Funds", value: 10, color: "hsl(var(--primary))" },
+    { name: "Bonds", value: 20, color: "hsl(var(--secondary))" },
+    { name: "Stocks", value: 70, color: "hsl(var(--accent))" },
   ];
 };
 
@@ -69,8 +69,8 @@ export const QuizProfil = () => {
           <Target className="w-6 h-6 text-accent" />
         </div>
         <div>
-          <h3 className="text-xl font-bold text-primary">Quiz Express Profil Investisseur</h3>
-          <p className="text-sm text-muted-foreground">30 secondes pour découvrir votre allocation idéale</p>
+          <h3 className="text-xl font-bold text-primary">Express Investor Profile Quiz</h3>
+          <p className="text-sm text-muted-foreground">30 seconds to discover your ideal allocation</p>
         </div>
       </div>
 
@@ -105,16 +105,16 @@ export const QuizProfil = () => {
             className="w-full bg-gradient-emerald text-white"
             size="lg"
           >
-            Voir mon allocation recommandée
+            View my recommended allocation
           </Button>
         </div>
       ) : (
         <div className="space-y-6 animate-fade-in">
           <div className="text-center">
             <div className="text-3xl font-bold text-primary mb-2">
-              Profil: {totalScore <= 3 ? "Prudent" : totalScore <= 5 ? "Équilibré" : "Dynamique"}
+              Profile: {totalScore <= 3 ? "Cautious" : totalScore <= 5 ? "Balanced" : "Dynamic"}
             </div>
-            <p className="text-muted-foreground">Allocation recommandée pour votre profil</p>
+            <p className="text-muted-foreground">Recommended allocation for your profile</p>
           </div>
 
           <ResponsiveContainer width="100%" height={250}>
@@ -129,7 +129,7 @@ export const QuizProfil = () => {
           </ResponsiveContainer>
 
           <Button variant="outline" onClick={() => setShowResults(false)} className="w-full">
-            Refaire le quiz
+            Retake the quiz
           </Button>
         </div>
       )}

@@ -3,10 +3,10 @@ import { Card } from "@/components/ui/card";
 import { PieChart, Pie, Cell, ResponsiveContainer, Sector } from "recharts";
 
 const data = [
-  { name: "Immobilier", value: 450000, color: "#0a4d3c" },
-  { name: "Actions/ETF", value: 280000, color: "#2d8a6b" },
-  { name: "Assurance Vie", value: 180000, color: "#5cb88f" },
-  { name: "Liquidités", value: 90000, color: "#a3d9c2" },
+  { name: "Real Estate", value: 450000, color: "#0a4d3c" },
+  { name: "Stocks/ETF", value: 280000, color: "#2d8a6b" },
+  { name: "Life Insurance", value: 180000, color: "#5cb88f" },
+  { name: "Cash", value: 90000, color: "#a3d9c2" },
 ];
 
 const renderActiveShape = (props: any) => {
@@ -41,7 +41,7 @@ export const PatrimoineDonut = () => {
   return (
     <Card className="p-6">
       <div className="mb-4">
-        <h3 className="text-xl font-bold text-primary mb-2">Vue Globale du Patrimoine</h3>
+        <h3 className="text-xl font-bold text-primary mb-2">Global Wealth Overview</h3>
         <div className="flex items-center gap-2">
           <div className="text-3xl font-bold text-primary">{(total / 1000).toFixed(0)}K €</div>
           <div className="px-3 py-1 bg-gradient-emerald text-white rounded-full text-sm font-semibold">

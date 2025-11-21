@@ -23,10 +23,10 @@ const Experts = () => {
               <div className="p-3 rounded-xl bg-emerald-light/20">
                 <Calendar className="w-8 h-8 text-primary" />
               </div>
-              <h1 className="text-4xl font-black text-primary">📅 Vos Rendez-vous</h1>
+              <h1 className="text-4xl font-black text-primary">📅 Your Appointments</h1>
             </div>
             <p className="text-lg font-semibold text-muted-foreground">
-              Gérez vos consultations et trouvez l'expert idéal 🎓
+              Manage your consultations and find the ideal expert 🎓
             </p>
           </div>
 

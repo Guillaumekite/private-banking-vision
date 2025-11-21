@@ -16,12 +16,12 @@ export const LandingHeader = () => {
             onClick={() => navigate("/dashboard")}
             className="text-foreground hover:text-primary font-bold"
           >
-            🔐 Se connecter
+            🔐 Sign In
           </Button>
           <Button 
             className="bg-gold text-gold-foreground hover:bg-gold/90 shadow-gold font-black px-6"
           >
-            ✨ Devenir Client
+            ✨ Become a Client
           </Button>
         </div>
       </div>

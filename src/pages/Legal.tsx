@@ -21,10 +21,10 @@ const Legal = () => {
               <div className="p-3 rounded-xl bg-emerald-light/20">
                 <Scale className="w-8 h-8 text-primary" />
               </div>
-              <h1 className="text-4xl font-black text-primary">⚖️ Légal</h1>
+              <h1 className="text-4xl font-black text-primary">⚖️ Legal</h1>
             </div>
             <p className="text-lg font-semibold text-muted-foreground">
-              Conformité et assistance juridique pour votre activité 🛡️
+              Compliance and legal assistance for your business 🛡️
             </p>
           </div>
 

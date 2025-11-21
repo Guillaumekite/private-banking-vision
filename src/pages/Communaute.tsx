@@ -21,16 +21,16 @@ const Communaute = () => {
               <div className="p-3 rounded-xl bg-primary/10">
                 <Users className="w-8 h-8 text-primary" />
               </div>
-              <h1 className="text-4xl font-bold text-primary">Communauté</h1>
+              <h1 className="text-4xl font-bold text-primary">Community</h1>
             </div>
             <p className="text-lg text-muted-foreground">
-              Échangez avec d'autres entrepreneurs
+              Connect with other entrepreneurs
             </p>
           </div>
 
           <Card className="p-8">
             <p className="text-center text-muted-foreground">
-              Section Communauté en construction
+              Community Section Under Construction
             </p>
           </Card>
         </main>

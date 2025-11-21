@@ -21,10 +21,10 @@ const Fiscalite = () => {
               <div className="p-3 rounded-xl bg-emerald-light/20">
                 <FileText className="w-8 h-8 text-secondary" />
               </div>
-              <h1 className="text-4xl font-black text-primary">💸 Fiscalité</h1>
+              <h1 className="text-4xl font-black text-primary">💸 Tax</h1>
             </div>
             <p className="text-lg font-semibold text-muted-foreground">
-              Optimisation fiscale et simulations personnalisées 🎯
+              Tax optimization and personalized simulations 🎯
             </p>
           </div>
 

@@ -6,10 +6,10 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 const upcomingAppointment = {
   expertName: "Marie Dubois",
   expertPhoto: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150",
-  specialization: "Fiscalité & Patrimoine",
-  date: "15 Janvier 2025",
-  time: "14:00 - 15:00",
-  location: "En ligne",
+  specialization: "Tax & Wealth",
+  date: "January 15, 2025",
+  time: "2:00 PM - 3:00 PM",
+  location: "Online",
   meetingLink: "https://meet.example.com/xyz",
 };
 
@@ -19,7 +19,7 @@ export const AppointmentCalendar = () => {
       <CardHeader>
         <CardTitle className="flex items-center gap-3">
           <Calendar className="w-6 h-6 text-primary" />
-          Prochain Rendez-vous
+          Next Appointment
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
@@ -52,17 +52,17 @@ export const AppointmentCalendar = () => {
                 Message
               </Button>
               <Button variant="outline" size="sm">
-                Reprogrammer
+                Reschedule
               </Button>
               <Button variant="destructive" size="sm">
-                Annuler
+                Cancel
               </Button>
             </div>
           </div>
         </div>
         
         <div className="p-4 rounded-lg bg-muted/30 border border-border/50">
-          <p className="text-sm text-muted-foreground mb-2">Lien de la réunion :</p>
+          <p className="text-sm text-muted-foreground mb-2">Meeting link:</p>
           <a 
             href={upcomingAppointment.meetingLink} 
             target="_blank" 
