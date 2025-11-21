@@ -3,24 +3,75 @@ import { Card } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Slider } from "@/components/ui/slider";
-import { TrendingUp, Shield, PiggyBank, Users } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { TrendingUp, Shield, PiggyBank, Users, Building2, Briefcase } from "lucide-react";
 
-const recommendations = {
-  young: [
-    { icon: TrendingUp, title: "Stratégie d'Investissement Actions", desc: "Profitez de votre horizon long terme" },
-    { icon: Shield, title: "Protection Patrimoniale", desc: "Sécurisez votre croissance" },
-    { icon: PiggyBank, title: "Optimisation Fiscale", desc: "Réduisez votre charge fiscale légalement" },
-  ],
-  mature: [
-    { icon: Shield, title: "Valorisation du Patrimoine", desc: "Faites fructifier vos acquis" },
-    { icon: Users, title: "Préparation à la Transmission", desc: "Anticipez la succession" },
-    { icon: TrendingUp, title: "Diversification Internationale", desc: "Élargissez vos horizons" },
-  ],
-  established: [
-    { icon: Users, title: "Stratégie de Transmission", desc: "Optimisez la transmission familiale" },
-    { icon: Shield, title: "Protection et Préservation", desc: "Sécurisez votre patrimoine" },
-    { icon: PiggyBank, title: "Optimisation Fiscale Avancée", desc: "Structuration patrimoniale complexe" },
-  ],
+const getRecommendations = (age: number, entreprises: string, situation: string, patrimoine: string) => {
+  const recommendations = [];
+  const ageVal = age;
+  const hasMultipleEntreprises = entreprises === "2" || entreprises === "3+";
+  const hasOneEntreprise = entreprises === "1";
+  const isYoung = ageVal < 40;
+  const isMature = ageVal >= 40 && ageVal < 60;
+  const isSenior = ageVal >= 60;
+  const highPatrimony = patrimoine === ">5m" || patrimoine === "250k-5m";
+
+  // Logique pour plusieurs entreprises
+  if (hasMultipleEntreprises) {
+    recommendations.push(
+      { icon: Building2, title: "Création de Holding", desc: "Optimisez la gestion de vos entreprises" },
+      { icon: TrendingUp, title: "Optimisation des Flux", desc: "Structurez les dividendes et rémunérations" }
+    );
+  }
+
+  // Logique pour une entreprise + âge mûr/senior
+  if (hasOneEntreprise && (isMature || isSenior)) {
+    recommendations.push(
+      { icon: Shield, title: "Pacte Dutreil", desc: "Préparez la transmission de votre entreprise" }
+    );
+  }
+
+  // Logique patrimoine + âge
+  if (highPatrimony && isYoung) {
+    recommendations.push(
+      { icon: TrendingUp, title: "Stratégie d'Investissement Actions", desc: "Profitez de votre horizon long terme" }
+    );
+  }
+
+  if (highPatrimony && isSenior) {
+    recommendations.push(
+      { icon: Users, title: "Stratégie de Transmission", desc: "Optimisez la transmission familiale" },
+      { icon: Briefcase, title: "Préparation Retraite", desc: "Sécurisez votre avenir" }
+    );
+  }
+
+  // Optimisation fiscale selon patrimoine
+  if (patrimoine === ">5m") {
+    recommendations.push(
+      { icon: PiggyBank, title: "Optimisation Fiscale Avancée", desc: "Structuration patrimoniale complexe" }
+    );
+  } else if (highPatrimony) {
+    recommendations.push(
+      { icon: PiggyBank, title: "Optimisation Fiscale", desc: "Réduisez votre charge fiscale légalement" }
+    );
+  }
+
+  // Protection patrimoniale générale
+  if (situation === "marie" || situation === "divorce") {
+    recommendations.push(
+      { icon: Shield, title: "Protection Patrimoniale", desc: "Sécurisez votre situation familiale" }
+    );
+  }
+
+  // Diversification pour patrimoine moyen/élevé
+  if (isMature && highPatrimony) {
+    recommendations.push(
+      { icon: TrendingUp, title: "Diversification Internationale", desc: "Élargissez vos horizons" }
+    );
+  }
+
+  // Limiter à 3-4 recommandations
+  return recommendations.slice(0, 4);
 };
 
 export const SimulatorSection = () => {
@@ -29,15 +80,20 @@ export const SimulatorSection = () => {
   const [enfants, setEnfants] = useState("2");
   const [entreprises, setEntreprises] = useState("1");
   const [patrimoine, setPatrimoine] = useState("250k-5m");
+  const [showResults, setShowResults] = useState(false);
 
   const getProfile = () => {
-    if (age[0] < 35) return { name: "Jeune Entrepreneur Marié avec Patrimoine en Croissance", type: "young" };
-    if (age[0] >= 35 && age[0] < 55) return { name: "Entrepreneur Établi avec Famille", type: "mature" };
-    return { name: "Entrepreneur Senior à Patrimoine Consolidé", type: "established" };
+    if (age[0] < 35) return "Jeune Entrepreneur avec Patrimoine en Croissance";
+    if (age[0] >= 35 && age[0] < 55) return "Entrepreneur Établi avec Famille";
+    return "Entrepreneur Senior à Patrimoine Consolidé";
+  };
+
+  const handleSimulate = () => {
+    setShowResults(true);
   };
 
   const profile = getProfile();
-  const currentRecommendations = recommendations[profile.type as keyof typeof recommendations];
+  const currentRecommendations = getRecommendations(age[0], entreprises, situation, patrimoine);
 
   return (
     <section className="py-20 px-6 bg-muted/30">
@@ -49,7 +105,7 @@ export const SimulatorSection = () => {
           Votre futur financier commence ici
         </p>
 
-        <Card className="p-8 shadow-card mb-12">
+        <Card className="p-8 shadow-card mb-8">
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-6">
               <div>
@@ -120,27 +176,41 @@ export const SimulatorSection = () => {
               </div>
             </div>
           </div>
+
+          <div className="mt-8 flex justify-center">
+            <Button 
+              onClick={handleSimulate}
+              size="lg"
+              className="bg-gradient-emerald text-white hover:opacity-90 transition-opacity px-12"
+            >
+              Simuler mon Optimisation
+            </Button>
+          </div>
         </Card>
 
-        <div className="bg-gradient-emerald text-white p-8 rounded-lg shadow-card mb-8">
-          <h2 className="text-3xl font-bold mb-2">Votre Profil d'Optimisation :</h2>
-          <p className="text-xl opacity-95">{profile.name}</p>
-        </div>
+        {showResults && (
+          <div className="animate-fade-in">
+            <div className="bg-gradient-emerald text-white p-8 rounded-lg shadow-card mb-8">
+              <h2 className="text-3xl font-bold mb-2">Votre Profil d'Optimisation :</h2>
+              <p className="text-xl opacity-95">{profile}</p>
+            </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {currentRecommendations.map((rec, idx) => {
-            const Icon = rec.icon;
-            return (
-              <Card key={idx} className="p-6 hover:shadow-card transition-shadow">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <Icon className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-lg font-semibold text-primary mb-2">{rec.title}</h3>
-                <p className="text-muted-foreground">{rec.desc}</p>
-              </Card>
-            );
-          })}
-        </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {currentRecommendations.map((rec, idx) => {
+                const Icon = rec.icon;
+                return (
+                  <Card key={idx} className="p-6 hover:shadow-card transition-shadow">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                      <Icon className="w-6 h-6 text-primary" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-primary mb-2">{rec.title}</h3>
+                    <p className="text-muted-foreground">{rec.desc}</p>
+                  </Card>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
