@@ -5,6 +5,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { format } from "date-fns";
+import { useAuth } from "@/hooks/useAuth";
 
 interface Expert {
   id: number;
@@ -29,6 +30,7 @@ export const BookingDialog = ({ expert, open, onOpenChange, onBookingComplete }:
   const [selectedDate, setSelectedDate] = useState<Date | undefined>();
   const [selectedTime, setSelectedTime] = useState<string>("");
   const [isBooking, setIsBooking] = useState(false);
+  const { user } = useAuth();
 
   const handleBooking = async () => {
     if (!selectedDate || !selectedTime || !expert) {
@@ -36,16 +38,14 @@ export const BookingDialog = ({ expert, open, onOpenChange, onBookingComplete }:
       return;
     }
 
+    if (!user) {
+      toast.error("Vous devez être connecté pour réserver");
+      return;
+    }
+
     setIsBooking(true);
 
     try {
-      const { data: { user } } = await supabase.auth.getUser();
-      
-      if (!user) {
-        toast.error("Vous devez être connecté pour réserver");
-        setIsBooking(false);
-        return;
-      }
 
       const { error } = await supabase.from("appointments").insert({
         user_id: user.id,
