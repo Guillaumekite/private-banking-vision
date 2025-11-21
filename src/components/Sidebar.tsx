@@ -1,4 +1,4 @@
-import { Home, LayoutDashboard, BookOpen, Users, Calculator, UserCircle, X } from "lucide-react";
+import { LayoutDashboard, BookOpen, Users, Calculator, UserCircle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { NavLink } from "@/components/NavLink";
@@ -9,7 +9,6 @@ interface SidebarProps {
 }
 
 const menuItems = [
-  { icon: Home, label: "Home", path: "/" },
   { icon: LayoutDashboard, label: "Dashboard", path: "/dashboard" },
   { icon: BookOpen, label: "Resources", path: "/patrimoine" },
   { icon: Users, label: "Community", path: "/communaute" },
