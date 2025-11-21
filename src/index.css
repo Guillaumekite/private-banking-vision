@@ -8,35 +8,39 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* BNP Paribas Banque Privée Design System */
+    /* Oscar Design System */
     --background: 60 9% 98%;
-    --foreground: 162 53% 12%;
+    --foreground: 160 100% 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 162 53% 12%;
+    --card-foreground: 160 100% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 162 53% 12%;
+    --popover-foreground: 160 100% 11%;
 
-    /* Deep forest green - Primary brand color */
-    --primary: 162 53% 12%;
+    /* Oscar Deep Green - Primary brand color */
+    --primary: 160 100% 11%;
     --primary-foreground: 60 9% 98%;
 
-    /* Light emerald - Secondary actions */
-    --secondary: 142 34% 48%;
+    /* Light green - Secondary actions */
+    --secondary: 160 60% 45%;
     --secondary-foreground: 0 0% 100%;
 
-    /* Soft backgrounds */
-    --muted: 162 15% 95%;
-    --muted-foreground: 162 20% 45%;
+    /* Soft green backgrounds */
+    --muted: 160 30% 95%;
+    --muted-foreground: 160 40% 40%;
 
-    /* Accent emerald */
-    --accent: 142 34% 48%;
+    /* Accent green */
+    --accent: 160 70% 35%;
     --accent-foreground: 0 0% 100%;
+
+    /* Light emerald for highlights */
+    --emerald-light: 160 50% 65%;
+    --emerald-lighter: 160 40% 85%;
 
     /* Gold premium touches */
     --gold: 45 63% 53%;
-    --gold-foreground: 162 53% 12%;
+    --gold-foreground: 160 100% 11%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -48,12 +52,12 @@ All colors MUST be HSL.
     --radius: 0.75rem;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(162 53% 12%), hsl(162 45% 21%));
-    --gradient-emerald: linear-gradient(135deg, hsl(142 34% 48%), hsl(142 40% 58%));
+    --gradient-primary: linear-gradient(135deg, hsl(160 100% 11%), hsl(160 80% 18%));
+    --gradient-emerald: linear-gradient(135deg, hsl(160 70% 35%), hsl(160 60% 45%));
     
     /* Shadows */
-    --shadow-soft: 0 2px 8px -2px hsl(162 53% 12% / 0.08);
-    --shadow-card: 0 4px 16px -4px hsl(162 53% 12% / 0.12);
+    --shadow-soft: 0 2px 8px -2px hsl(160 100% 11% / 0.08);
+    --shadow-card: 0 4px 16px -4px hsl(160 100% 11% / 0.12);
     --shadow-gold: 0 4px 12px -2px hsl(45 63% 53% / 0.3);
 
     /* Transitions */

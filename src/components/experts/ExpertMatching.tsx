@@ -60,10 +60,10 @@ export const ExpertMatching = () => {
   const [userInput, setUserInput] = useState("");
 
   return (
-    <Card className="border-primary/20 shadow-card">
+    <Card className="border-primary/20 shadow-card bg-gradient-to-br from-background to-emerald-lighter/10">
       <CardHeader>
-        <CardTitle className="text-2xl">Match avec votre expert</CardTitle>
-        <p className="text-muted-foreground">Précisez votre disponibilité et vos besoins</p>
+        <CardTitle className="text-2xl font-black">🤝 Match avec votre expert</CardTitle>
+        <p className="text-muted-foreground font-medium">Précisez votre disponibilité et vos besoins ✨</p>
       </CardHeader>
       <CardContent className="space-y-6">
         <div className="space-y-3">
@@ -73,9 +73,9 @@ export const ExpertMatching = () => {
             onChange={(e) => setUserInput(e.target.value)}
             className="min-h-[120px] resize-none"
           />
-          <Button className="w-full sm:w-auto gap-2">
+          <Button className="w-full sm:w-auto gap-2 font-bold">
             <MessageCircle className="w-4 h-4" />
-            Trouver mon expert
+            🔍 Trouver mon expert
           </Button>
         </div>
 
