@@ -2,8 +2,6 @@ import { useState } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { format } from "date-fns";
@@ -31,19 +29,12 @@ const timeSlots = [
 export const BookingDialog = ({ expert, open, onOpenChange, onBookingComplete }: BookingDialogProps) => {
   const [selectedDate, setSelectedDate] = useState<Date | undefined>();
   const [selectedTime, setSelectedTime] = useState<string>("");
-  const [guestName, setGuestName] = useState("");
-  const [guestEmail, setGuestEmail] = useState("");
   const [isBooking, setIsBooking] = useState(false);
   const { user } = useAuth();
 
   const handleBooking = async () => {
     if (!selectedDate || !selectedTime || !expert) {
       toast.error("Veuillez sélectionner une date et une heure");
-      return;
-    }
-
-    if (!user && (!guestName || !guestEmail)) {
-      toast.error("Veuillez renseigner votre nom et email");
       return;
     }
 
@@ -63,9 +54,6 @@ export const BookingDialog = ({ expert, open, onOpenChange, onBookingComplete }:
 
       if (user) {
         appointmentData.user_id = user.id;
-      } else {
-        appointmentData.guest_name = guestName;
-        appointmentData.guest_email = guestEmail;
       }
 
       const { error } = await supabase.from("appointments").insert(appointmentData);
@@ -77,8 +65,6 @@ export const BookingDialog = ({ expert, open, onOpenChange, onBookingComplete }:
       onBookingComplete();
       setSelectedDate(undefined);
       setSelectedTime("");
-      setGuestName("");
-      setGuestEmail("");
     } catch (error) {
       console.error("Error booking appointment:", error);
       toast.error("Erreur lors de la réservation");
@@ -98,30 +84,6 @@ export const BookingDialog = ({ expert, open, onOpenChange, onBookingComplete }:
         </DialogHeader>
 
         <div className="space-y-6 py-4">
-          {!user && (
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="name">Nom complet</Label>
-                <Input
-                  id="name"
-                  placeholder="Votre nom"
-                  value={guestName}
-                  onChange={(e) => setGuestName(e.target.value)}
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="votre@email.com"
-                  value={guestEmail}
-                  onChange={(e) => setGuestEmail(e.target.value)}
-                />
-              </div>
-            </div>
-          )}
-
           <div>
             <h3 className="font-semibold mb-3">Sélectionnez une date</h3>
             <Calendar
@@ -161,7 +123,7 @@ export const BookingDialog = ({ expert, open, onOpenChange, onBookingComplete }:
             </Button>
             <Button
               onClick={handleBooking}
-              disabled={!selectedDate || !selectedTime || isBooking || (!user && (!guestName || !guestEmail))}
+              disabled={!selectedDate || !selectedTime || isBooking}
               className="flex-1"
             >
               {isBooking ? "Réservation..." : "Confirmer"}
