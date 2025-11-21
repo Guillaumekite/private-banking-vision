@@ -149,7 +149,7 @@ const Communaute = () => {
           </div>
 
           {/* Upcoming Events Section */}
-          <Card className="border-primary/20 shadow-card">
+          <Card className="border-primary/20 shadow-lg bg-gradient-to-br from-background via-emerald-lighter/5 to-background">
             <CardHeader>
               <CardTitle className="flex items-center gap-3 text-2xl font-black">
                 <Calendar className="w-6 h-6 text-primary" />
@@ -159,14 +159,15 @@ const Communaute = () => {
             <CardContent>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {upcomingEvents.map((event) => (
-                  <Card key={event.id} className="overflow-hidden hover:shadow-card transition-all border-border/50">
-                    <div className="h-40 overflow-hidden">
+                  <Card key={event.id} className="overflow-hidden hover:shadow-xl transition-all border-border/50 shadow-md hover:scale-105 duration-300">
+                    <div className="h-40 overflow-hidden relative">
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent z-10" />
                       <img src={event.image} alt={event.title} className="w-full h-full object-cover" />
                     </div>
                     <CardContent className="p-4 space-y-3">
                       <div className="flex items-start justify-between gap-2">
                         <h3 className="font-bold text-lg text-primary">{event.title}</h3>
-                        <Badge variant="secondary" className="shrink-0">{event.category}</Badge>
+                        <Badge variant="secondary" className="shrink-0 shadow-sm">{event.category}</Badge>
                       </div>
                       
                       <div className="space-y-2 text-sm text-muted-foreground">
@@ -184,7 +185,7 @@ const Communaute = () => {
                         </div>
                       </div>
 
-                      <Button className="w-full font-bold">
+                      <Button className="w-full font-bold shadow-md hover:shadow-lg transition-shadow">
                         Register Now
                       </Button>
                     </CardContent>
@@ -195,7 +196,7 @@ const Communaute = () => {
           </Card>
 
           {/* Founders Network Section */}
-          <Card className="border-primary/20 shadow-card bg-gradient-to-br from-background to-emerald-lighter/10">
+          <Card className="border-primary/20 shadow-xl bg-gradient-to-br from-emerald-lighter/10 via-background to-emerald-lighter/5">
             <CardHeader>
               <CardTitle className="flex items-center gap-3 text-2xl font-black">
                 <Target className="w-6 h-6 text-primary" />
@@ -206,9 +207,9 @@ const Communaute = () => {
             <CardContent>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {founders.map((founder) => (
-                  <Card key={founder.id} className="p-4 hover:shadow-card transition-all border-border/50">
+                  <Card key={founder.id} className="p-4 hover:shadow-xl transition-all border-border/50 shadow-md hover:scale-105 duration-300 bg-gradient-to-b from-background to-emerald-lighter/5">
                     <div className="flex flex-col items-center text-center space-y-3">
-                      <Avatar className="w-20 h-20 border-2 border-primary/20">
+                      <Avatar className="w-20 h-20 border-2 border-primary/20 shadow-md">
                         <AvatarImage src={founder.photo} alt={founder.name} />
                         <AvatarFallback>{founder.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                       </Avatar>
@@ -227,7 +228,7 @@ const Communaute = () => {
                         {founder.connections} connections
                       </div>
 
-                      <Button variant="outline" size="sm" className="w-full">
+                      <Button variant="outline" size="sm" className="w-full shadow-sm hover:shadow-md transition-shadow">
                         Connect
                       </Button>
                     </div>
@@ -238,7 +239,7 @@ const Communaute = () => {
           </Card>
 
           {/* Masterclasses Section */}
-          <Card className="border-primary/20 shadow-card">
+          <Card className="border-primary/20 shadow-xl bg-gradient-to-br from-background via-emerald-lighter/5 to-background">
             <CardHeader>
               <CardTitle className="flex items-center gap-3 text-2xl font-black">
                 <Award className="w-6 h-6 text-primary" />
@@ -249,9 +250,9 @@ const Communaute = () => {
             <CardContent>
               <div className="space-y-4">
                 {masterclasses.map((masterclass) => (
-                  <Card key={masterclass.id} className="p-6 hover:shadow-card transition-all border-border/50">
+                  <Card key={masterclass.id} className="p-6 hover:shadow-xl transition-all border-border/50 shadow-lg hover:scale-[1.02] duration-300 bg-gradient-to-r from-background via-emerald-lighter/5 to-background">
                     <div className="flex flex-col lg:flex-row gap-6">
-                      <Avatar className="w-24 h-24 border-2 border-primary/20 shrink-0">
+                      <Avatar className="w-24 h-24 border-2 border-primary/20 shrink-0 shadow-lg">
                         <AvatarImage src={masterclass.instructorPhoto} alt={masterclass.instructor} />
                         <AvatarFallback>{masterclass.instructor.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                       </Avatar>
@@ -260,14 +261,14 @@ const Communaute = () => {
                         <div>
                           <div className="flex items-start justify-between gap-4 mb-2">
                             <h3 className="text-xl font-bold text-primary">{masterclass.title}</h3>
-                            <Badge className="bg-gold text-gold-foreground shrink-0">{masterclass.level}</Badge>
+                            <Badge className="bg-gold text-gold-foreground shrink-0 shadow-md">{masterclass.level}</Badge>
                           </div>
                           <p className="text-sm text-muted-foreground">by {masterclass.instructor}</p>
                         </div>
 
                         <div className="flex flex-wrap gap-2">
                           {masterclass.topics.map((topic, idx) => (
-                            <Badge key={idx} variant="secondary" className="text-xs">
+                            <Badge key={idx} variant="secondary" className="text-xs shadow-sm">
                               {topic}
                             </Badge>
                           ))}
@@ -294,7 +295,7 @@ const Communaute = () => {
 
                         <div className="flex items-center justify-between pt-2">
                           <span className="text-lg font-bold text-secondary">{masterclass.price}</span>
-                          <Button className="font-bold">
+                          <Button className="font-bold shadow-md hover:shadow-lg transition-shadow">
                             Reserve My Spot
                           </Button>
                         </div>

@@ -26,7 +26,7 @@ export const Header = ({ onToggleSidebar }: HeaderProps) => {
           <OscarLogo />
         </div>
 
-        <div className="flex-1 flex items-center justify-center gap-1 bg-muted rounded-lg p-1">
+        <div className="inline-flex items-center gap-1 bg-muted rounded-lg p-1 max-w-[360px]">
           <button
             onClick={() => setActiveTab("pro")}
             className={`px-6 py-2 rounded-md text-sm font-bold transition-all ${
