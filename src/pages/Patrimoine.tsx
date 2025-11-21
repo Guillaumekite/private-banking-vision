@@ -27,10 +27,10 @@ const Patrimoine = () => {
                 <Landmark className="w-8 h-8 text-primary" />
               </div>
               <div>
-                <h1 className="text-4xl font-black text-primary">💎 Patrimoine</h1>
-                <p className="text-lg font-semibold text-muted-foreground">
-                  Vue globale et gestion optimisée de votre patrimoine 🚀
-                </p>
+              <h1 className="text-4xl font-black text-primary">💎 Wealth</h1>
+              <p className="text-lg font-semibold text-muted-foreground">
+                Global view and optimized wealth management 🚀
+              </p>
               </div>
             </div>
           </div>

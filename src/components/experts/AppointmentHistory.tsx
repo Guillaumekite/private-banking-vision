@@ -9,46 +9,46 @@ import { useState } from "react";
 const historyData = {
   totalConsultations: 12,
   keyInsights: [
-    "Optimisation fiscale : économie de 15K€/an réalisée",
-    "Holding familiale créée en septembre 2024",
-    "Stratégie de succession validée et en cours",
-    "Portefeuille d'investissement diversifié (ETF + SCPI)",
+    "Tax optimization: 15K€/year savings achieved",
+    "Family holding created in September 2024",
+    "Succession strategy validated and ongoing",
+    "Diversified investment portfolio (ETF + SCPI)",
   ],
   documents: [
-    { name: "Rapport fiscal 2024.pdf", date: "10 Déc 2024", size: "2.4 MB" },
-    { name: "Statuts Holding.pdf", date: "15 Sep 2024", size: "1.8 MB" },
-    { name: "Plan succession.pdf", date: "20 Juin 2024", size: "3.1 MB" },
+    { name: "Tax Report 2024.pdf", date: "Dec 10, 2024", size: "2.4 MB" },
+    { name: "Holding Articles.pdf", date: "Sep 15, 2024", size: "1.8 MB" },
+    { name: "Succession Plan.pdf", date: "Jun 20, 2024", size: "3.1 MB" },
   ],
   lastExchanges: [
     {
       id: 1,
       expertName: "Jean Martin",
       expertPhoto: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150",
-      date: "10 Décembre 2024",
+      date: "December 10, 2024",
       duration: "60 min",
-      topic: "Optimisation fiscale 2024",
-      summary: "Discussion approfondie sur les stratégies d'optimisation fiscale pour l'année 2024. Recommandations spécifiques sur la répartition salaire/dividendes et l'utilisation de la holding.",
+      topic: "2024 Tax Optimization",
+      summary: "In-depth discussion on tax optimization strategies for 2024. Specific recommendations on salary/dividends distribution and holding company usage.",
       recommendations: [
-        "Privilégier les dividendes à hauteur de 60% de la rémunération totale",
-        "Mettre en place des management fees entre holding et filiales",
-        "Anticiper les versements de charges sociales du Q1 2025",
+        "Favor dividends at 60% of total compensation",
+        "Set up management fees between holding and subsidiaries",
+        "Anticipate Q1 2025 social security payments",
       ],
-      attachments: ["Rapport_fiscal_2024.pdf", "Calendrier_fiscal_2025.xlsx"],
+      attachments: ["Tax_Report_2024.pdf", "Tax_Calendar_2025.xlsx"],
     },
     {
       id: 2,
       expertName: "Sophie Laurent",
       expertPhoto: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150",
-      date: "20 Juin 2024",
+      date: "June 20, 2024",
       duration: "45 min",
-      topic: "Planification successorale",
-      summary: "Élaboration de la stratégie de transmission patrimoniale. Discussion sur les donations, l'assurance-vie et le pacte Dutreil.",
+      topic: "Estate Planning",
+      summary: "Development of wealth transfer strategy. Discussion on gifts, life insurance and Dutreil pact.",
       recommendations: [
-        "Donation en démembrement avant 70 ans pour optimiser l'IFI",
-        "Ouverture d'une assurance-vie pour chaque enfant",
-        "Signature du pacte Dutreil pour les parts de société",
+        "Dismemberment gift before 70 to optimize IFI",
+        "Opening a life insurance for each child",
+        "Signing the Dutreil pact for company shares",
       ],
-      attachments: ["Plan_succession.pdf"],
+      attachments: ["Succession_Plan.pdf"],
     },
   ],
 };
@@ -59,7 +59,7 @@ export const AppointmentHistory = () => {
   return (
     <Card className="border-primary/20 shadow-card">
       <CardHeader>
-        <CardTitle className="text-2xl">Historique des Rendez-vous</CardTitle>
+        <CardTitle className="text-2xl">Appointment History</CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -68,7 +68,7 @@ export const AppointmentHistory = () => {
               <div className="text-3xl font-bold text-primary mb-1">
                 {historyData.totalConsultations}
               </div>
-              <p className="text-sm text-muted-foreground">Consultations réalisées</p>
+              <p className="text-sm text-muted-foreground">Consultations completed</p>
             </CardContent>
           </Card>
 
@@ -76,7 +76,7 @@ export const AppointmentHistory = () => {
             <CardContent className="p-4">
               <h4 className="font-semibold mb-2 flex items-center gap-2">
                 <FileText className="w-4 h-4 text-primary" />
-                Points clés
+                Key Points
               </h4>
               <ul className="space-y-1.5">
                 {historyData.keyInsights.map((insight, idx) => (
@@ -94,7 +94,7 @@ export const AppointmentHistory = () => {
           <CardContent className="p-4">
             <h4 className="font-semibold mb-3 flex items-center gap-2">
               <FileText className="w-4 h-4 text-primary" />
-              Documents échangés
+              Exchanged Documents
             </h4>
             <div className="space-y-2">
               {historyData.documents.map((doc, idx) => (
@@ -123,7 +123,7 @@ export const AppointmentHistory = () => {
         <div className="space-y-4">
           <h3 className="font-semibold text-lg flex items-center gap-2">
             <MessageCircle className="w-5 h-5 text-primary" />
-            Derniers échanges avec vos experts
+            Last exchanges with your experts
           </h3>
 
           {historyData.lastExchanges.map((exchange) => (
@@ -171,12 +171,12 @@ export const AppointmentHistory = () => {
                 <CollapsibleContent>
                   <CardContent className="px-4 pb-4 pt-0 space-y-4 border-t border-border/50 mt-2">
                     <div>
-                      <h5 className="font-medium text-sm mb-2">Résumé</h5>
+                      <h5 className="font-medium text-sm mb-2">Summary</h5>
                       <p className="text-sm text-muted-foreground">{exchange.summary}</p>
                     </div>
 
                     <div>
-                      <h5 className="font-medium text-sm mb-2">Recommandations</h5>
+                      <h5 className="font-medium text-sm mb-2">Recommendations</h5>
                       <ul className="space-y-1.5">
                         {exchange.recommendations.map((rec, idx) => (
                           <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
@@ -188,7 +188,7 @@ export const AppointmentHistory = () => {
                     </div>
 
                     <div>
-                      <h5 className="font-medium text-sm mb-2">Pièces jointes</h5>
+                      <h5 className="font-medium text-sm mb-2">Attachments</h5>
                       <div className="flex flex-wrap gap-2">
                         {exchange.attachments.map((file, idx) => (
                           <Badge key={idx} variant="outline" className="gap-1">
@@ -201,7 +201,7 @@ export const AppointmentHistory = () => {
 
                     <Button className="w-full sm:w-auto gap-2" variant="outline">
                       <Calendar className="w-4 h-4" />
-                      Réserver un suivi avec {exchange.expertName.split(' ')[0]}
+                      Book a follow-up with {exchange.expertName.split(' ')[0]}
                     </Button>
                   </CardContent>
                 </CollapsibleContent>

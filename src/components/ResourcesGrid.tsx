@@ -3,12 +3,12 @@ import { TrendingUp, Scale, FileText, Calculator, Users, Landmark } from "lucide
 import { useNavigate } from "react-router-dom";
 
 const resources = [
-  { icon: TrendingUp, title: "Investissement", color: "text-accent", path: "/investissement" },
-  { icon: Scale, title: "Légal", color: "text-primary", path: "/legal" },
-  { icon: FileText, title: "Fiscalité", color: "text-secondary", path: "/fiscalite" },
+  { icon: TrendingUp, title: "Investment", color: "text-accent", path: "/investissement" },
+  { icon: Scale, title: "Legal", color: "text-primary", path: "/legal" },
+  { icon: FileText, title: "Tax", color: "text-secondary", path: "/fiscalite" },
   { icon: Calculator, title: "Simulation", color: "text-accent", path: "/" },
   { icon: Users, title: "Experts", color: "text-primary", path: "/experts" },
-  { icon: Landmark, title: "Patrimoine", color: "text-secondary", path: "/patrimoine" },
+  { icon: Landmark, title: "Wealth", color: "text-secondary", path: "/patrimoine" },
 ];
 
 export const ResourcesGrid = () => {
@@ -16,7 +16,7 @@ export const ResourcesGrid = () => {
 
   return (
     <div className="space-y-4">
-      <h3 className="text-lg font-semibold text-primary">Ressources et Conseils</h3>
+      <h3 className="text-lg font-semibold text-primary">Resources & Advice</h3>
       
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {resources.map((resource, index) => {

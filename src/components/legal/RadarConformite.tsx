@@ -4,11 +4,11 @@ import { Shield, Users, FileText, Database, Scale } from "lucide-react";
 import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, ResponsiveContainer } from "recharts";
 
 const conformiteData = [
-  { category: "RH", score: 75, icon: Users, max: 100 },
-  { category: "Juridique", score: 85, icon: Scale, max: 100 },
-  { category: "Contrats", score: 60, icon: FileText, max: 100 },
-  { category: "Data/RGPD", score: 45, icon: Database, max: 100 },
-  { category: "Fiscal", score: 90, icon: Shield, max: 100 },
+  { category: "HR", score: 75, icon: Users, max: 100 },
+  { category: "Legal", score: 85, icon: Scale, max: 100 },
+  { category: "Contracts", score: 60, icon: FileText, max: 100 },
+  { category: "Data/GDPR", score: 45, icon: Database, max: 100 },
+  { category: "Tax", score: 90, icon: Shield, max: 100 },
 ];
 
 export const RadarConformite = () => {
@@ -22,16 +22,16 @@ export const RadarConformite = () => {
 
   const getScoreBadge = (score: number) => {
     if (score >= 80) return "Excellent";
-    if (score >= 60) return "Moyen";
-    return "À risque";
+    if (score >= 60) return "Average";
+    return "At Risk";
   };
 
   return (
     <Card className="p-6">
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-xl font-bold text-primary">Radar de Conformité</h3>
+        <h3 className="text-xl font-bold text-primary">Compliance Radar</h3>
         <Badge className={`${scoreGlobal >= 80 ? "bg-gradient-emerald" : scoreGlobal >= 60 ? "bg-gold" : "bg-destructive"} text-white`}>
-          Score Global: {scoreGlobal}/100
+          Overall Score: {scoreGlobal}/100
         </Badge>
       </div>
 
@@ -40,7 +40,7 @@ export const RadarConformite = () => {
           <PolarGrid stroke="hsl(var(--border))" />
           <PolarAngleAxis dataKey="category" />
           <PolarRadiusAxis angle={90} domain={[0, 100]} />
-          <Radar name="Conformité" dataKey="score" stroke="hsl(var(--secondary))" fill="hsl(var(--secondary))" fillOpacity={0.3} />
+          <Radar name="Compliance" dataKey="score" stroke="hsl(var(--secondary))" fill="hsl(var(--secondary))" fillOpacity={0.3} />
         </RadarChart>
       </ResponsiveContainer>
 

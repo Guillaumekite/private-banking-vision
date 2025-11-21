@@ -16,11 +16,11 @@ export const DashboardCard = () => {
     <Card className="p-8 shadow-card hover:shadow-gold transition-all duration-300 border-border/50">
       <div className="flex items-start justify-between mb-6">
         <div>
-          <p className="text-sm text-muted-foreground font-medium mb-2">Vue Globale</p>
-          <h2 className="text-4xl font-bold text-primary mb-1">1 680 000 €</h2>
+          <p className="text-sm text-muted-foreground font-medium mb-2">Global View</p>
+          <h2 className="text-4xl font-bold text-primary mb-1">1,680,000 €</h2>
           <div className="flex items-center gap-2 text-secondary">
             <TrendingUp className="w-4 h-4" />
-            <span className="text-sm font-medium">+12.5% ce mois</span>
+            <span className="text-sm font-medium">+12.5% this month</span>
           </div>
         </div>
         <button className="p-2 rounded-lg bg-gold/10 hover:bg-gold/20 transition-colors group">
@@ -43,7 +43,7 @@ export const DashboardCard = () => {
       </div>
       
       <p className="text-xs text-muted-foreground mt-4">
-        Dernière mise à jour : aujourd'hui à 14:32
+        Last update: today at 2:32 PM
       </p>
     </Card>
   );

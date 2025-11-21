@@ -27,7 +27,7 @@ export const ProjectionTimeline = () => {
   return (
     <Card className="p-6">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-xl font-bold text-primary">Projection du Patrimoine</h3>
+        <h3 className="text-xl font-bold text-primary">Wealth Projection</h3>
         <div className="flex items-center gap-2 text-secondary">
           <TrendingUp className="w-5 h-5" />
           <span className="font-semibold">+{growthRate * 100}% / an</span>
@@ -36,7 +36,7 @@ export const ProjectionTimeline = () => {
 
       <div className="mb-6">
         <div className="flex justify-between items-center mb-2">
-          <span className="text-sm text-muted-foreground">Horizon : {years[0]} ans</span>
+          <span className="text-sm text-muted-foreground">Horizon: {years[0]} years</span>
           <div className="text-right">
             <div className="text-2xl font-bold text-primary">{(finalValue / 1000).toFixed(0)}K €</div>
             <div className="text-sm text-secondary">+{(gain / 1000).toFixed(0)}K €</div>
@@ -56,7 +56,7 @@ export const ProjectionTimeline = () => {
       </ResponsiveContainer>
 
       <div className="mt-4 p-4 bg-muted/50 rounded-lg">
-        <div className="text-sm text-muted-foreground">Score Santé Financière</div>
+        <div className="text-sm text-muted-foreground">Financial Health Score</div>
         <div className="flex items-center gap-2 mt-1">
           <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
             <div className="h-full bg-gradient-emerald" style={{ width: "75%" }} />

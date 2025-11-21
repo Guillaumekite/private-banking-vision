@@ -10,7 +10,7 @@ export const FloatingButtons = () => {
       >
         <Calendar className="w-5 h-5" />
         <span className="text-xs font-semibold whitespace-nowrap [writing-mode:vertical-rl] rotate-180">
-          Mon Conseiller
+          My Advisor
         </span>
       </Button>
 

@@ -18,9 +18,9 @@ const experts = [
     id: 1,
     name: "Jean Martin",
     photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150",
-    specialization: "Fiscalité Entreprise",
-    tags: ["IR", "IS", "TVA", "Holding"],
-    bio: "Expert en optimisation fiscale pour entrepreneurs depuis 15 ans",
+    specialization: "Corporate Tax",
+    tags: ["IR", "IS", "VAT", "Holding"],
+    bio: "Expert in tax optimization for entrepreneurs for 15 years",
     rating: 4.9,
     reviews: 127,
   },
@@ -28,9 +28,9 @@ const experts = [
     id: 2,
     name: "Sophie Laurent",
     photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150",
-    specialization: "Patrimoine & Succession",
-    tags: ["Succession", "Donation", "IFI", "Assurance-vie"],
-    bio: "Spécialiste en transmission patrimoniale et planification successorale",
+    specialization: "Wealth & Succession",
+    tags: ["Succession", "Gift", "IFI", "Life Insurance"],
+    bio: "Specialist in wealth transfer and estate planning",
     rating: 4.8,
     reviews: 98,
   },
@@ -38,9 +38,9 @@ const experts = [
     id: 3,
     name: "Pierre Dubois",
     photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150",
-    specialization: "Investissement & Gestion",
+    specialization: "Investment & Management",
     tags: ["ETF", "SCPI", "PEA", "Crypto"],
-    bio: "Conseiller en gestion de patrimoine et stratégie d'investissement",
+    bio: "Wealth management advisor and investment strategy",
     rating: 4.7,
     reviews: 156,
   },
@@ -48,9 +48,9 @@ const experts = [
     id: 4,
     name: "Caroline Petit",
     photo: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150",
-    specialization: "Juridique & Conformité",
-    tags: ["Contrats", "Statuts", "RGPD", "Social"],
-    bio: "Avocate spécialisée en droit des affaires et conformité",
+    specialization: "Legal & Compliance",
+    tags: ["Contracts", "Articles", "GDPR", "Social"],
+    bio: "Lawyer specializing in business law and compliance",
     rating: 4.9,
     reviews: 83,
   },
@@ -62,25 +62,25 @@ export const ExpertMatching = () => {
   return (
     <Card className="border-primary/20 shadow-card bg-gradient-to-br from-background to-emerald-lighter/10">
       <CardHeader>
-        <CardTitle className="text-2xl font-black">🤝 Match avec votre expert</CardTitle>
-        <p className="text-muted-foreground font-medium">Précisez votre disponibilité et vos besoins ✨</p>
+        <CardTitle className="text-2xl font-black">🤝 Match with your expert</CardTitle>
+        <p className="text-muted-foreground font-medium">Specify your availability and needs ✨</p>
       </CardHeader>
       <CardContent className="space-y-6">
         <div className="space-y-3">
           <Textarea
-            placeholder="Décrivez vos besoins, votre disponibilité et vos préférences...&#10;Exemple : J'ai besoin d'aide pour optimiser ma fiscalité. Je suis disponible les mardis et jeudis après-midi."
+            placeholder="Describe your needs, availability and preferences...&#10;Example: I need help optimizing my taxes. I'm available on Tuesdays and Thursdays in the afternoon."
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
             className="min-h-[120px] resize-none"
           />
           <Button className="w-full sm:w-auto gap-2 font-bold">
             <MessageCircle className="w-4 h-4" />
-            🔍 Trouver mon expert
+            🔍 Find my expert
           </Button>
         </div>
 
         <div className="space-y-4">
-          <h3 className="font-semibold text-lg">Experts recommandés</h3>
+          <h3 className="font-semibold text-lg">Recommended Experts</h3>
           
           <Carousel className="w-full">
             <CarouselContent>
@@ -123,7 +123,7 @@ export const ExpertMatching = () => {
                         </Button>
                         <Button size="sm" className="flex-1 gap-2">
                           <Calendar className="w-4 h-4" />
-                          Réserver
+                          Book
                         </Button>
                       </div>
                     </CardContent>

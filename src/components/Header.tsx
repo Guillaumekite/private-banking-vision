@@ -35,7 +35,7 @@ export const Header = ({ onToggleSidebar }: HeaderProps) => {
                 : "text-muted-foreground hover:text-primary"
             }`}
           >
-            💼 Vie Professionnelle
+            💼 Professional Life
           </button>
           <button
             onClick={() => setActiveTab("perso")}
@@ -45,7 +45,7 @@ export const Header = ({ onToggleSidebar }: HeaderProps) => {
                 : "text-muted-foreground hover:text-primary"
             }`}
           >
-            🏠 Vie Personnelle
+            🏠 Personal Life
           </button>
         </div>
 

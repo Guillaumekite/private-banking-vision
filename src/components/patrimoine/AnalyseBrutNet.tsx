@@ -6,30 +6,30 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 type ViewType = "brut" | "net" | "disponible";
 
 const data = {
-  brut: { label: "Patrimoine Brut", value: 1000000 },
-  net: { label: "Patrimoine Net", value: 850000 },
-  disponible: { label: "Patrimoine Disponible", value: 650000 },
+  brut: { label: "Gross Wealth", value: 1000000 },
+  net: { label: "Net Wealth", value: 850000 },
+  disponible: { label: "Available Wealth", value: 650000 },
 };
 
 export const AnalyseBrutNet = () => {
   const [view, setView] = useState<ViewType>("brut");
 
   const chartData = [
-    { name: "Brut", value: data.brut.value, color: "hsl(var(--primary))" },
+    { name: "Gross", value: data.brut.value, color: "hsl(var(--primary))" },
     { name: "Net", value: data.net.value, color: "hsl(var(--secondary))" },
-    { name: "Dispo", value: data.disponible.value, color: "hsl(var(--accent))" },
+    { name: "Avail", value: data.disponible.value, color: "hsl(var(--accent))" },
   ];
 
   const currentData = data[view];
   const recommendations = {
-    brut: "Votre patrimoine brut est solide. Pensez à optimiser la fiscalité.",
-    net: "Après dettes, votre patrimoine net représente 85% du brut. Excellent ratio!",
-    disponible: "Liquidité disponible à court terme pour opportunités d'investissement.",
+    brut: "Your gross wealth is solid. Consider optimizing taxation.",
+    net: "After debts, your net wealth represents 85% of gross. Excellent ratio!",
+    disponible: "Short-term liquidity available for investment opportunities.",
   };
 
   return (
     <Card className="p-6">
-      <h3 className="text-xl font-bold text-primary mb-4">Analyse Brut / Net / Disponible</h3>
+      <h3 className="text-xl font-bold text-primary mb-4">Gross / Net / Available Analysis</h3>
 
       <div className="flex gap-2 mb-6">
         {(Object.keys(data) as ViewType[]).map((type) => (
@@ -64,7 +64,7 @@ export const AnalyseBrutNet = () => {
       </ResponsiveContainer>
 
       <div className="mt-4 p-4 bg-gradient-emerald/10 rounded-lg border border-secondary/20">
-        <div className="text-sm font-semibold text-primary mb-1">💡 Recommandation</div>
+        <div className="text-sm font-semibold text-primary mb-1">💡 Recommendation</div>
         <div className="text-sm text-muted-foreground">{recommendations[view]}</div>
       </div>
     </Card>
