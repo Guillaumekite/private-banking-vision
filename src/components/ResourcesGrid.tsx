@@ -6,7 +6,7 @@ const resources = [
   { icon: TrendingUp, title: "Investment", color: "text-accent", path: "/investissement" },
   { icon: Scale, title: "Legal", color: "text-primary", path: "/legal" },
   { icon: FileText, title: "Tax", color: "text-secondary", path: "/fiscalite" },
-  { icon: Calculator, title: "Simulation", color: "text-accent", path: "/" },
+  { icon: Calculator, title: "Simulation", color: "text-accent", path: "/investissement" },
   { icon: Users, title: "Experts", color: "text-primary", path: "/experts" },
   { icon: Landmark, title: "Wealth", color: "text-secondary", path: "/patrimoine" },
 ];
