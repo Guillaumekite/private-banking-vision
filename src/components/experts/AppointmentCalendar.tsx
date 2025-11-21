@@ -29,22 +29,25 @@ export const AppointmentCalendar = () => {
   const fetchNextAppointment = async () => {
     try {
       const { data: { user } } = await supabase.auth.getUser();
-      
-      if (!user) {
-        setLoading(false);
-        return;
-      }
 
-      const { data, error } = await supabase
+      let query = supabase
         .from("appointments")
         .select("*")
-        .eq("user_id", user.id)
         .eq("status", "scheduled")
         .gte("appointment_date", format(new Date(), "yyyy-MM-dd"))
         .order("appointment_date", { ascending: true })
         .order("appointment_time", { ascending: true })
-        .limit(1)
-        .maybeSingle();
+        .limit(1);
+
+      // Si l'utilisateur est connecté, filtrer par user_id OU user_id null
+      // Sinon, récupérer tous les rendez-vous (sans user_id)
+      if (user) {
+        query = query.or(`user_id.eq.${user.id},user_id.is.null`);
+      } else {
+        query = query.is("user_id", null);
+      }
+
+      const { data, error } = await query.maybeSingle();
 
       if (error) throw error;
       
