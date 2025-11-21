@@ -10,6 +10,7 @@ import Investissement from "./pages/Investissement";
 import Legal from "./pages/Legal";
 import Fiscalite from "./pages/Fiscalite";
 import Experts from "./pages/Experts";
+import Communaute from "./pages/Communaute";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/legal" element={<Legal />} />
           <Route path="/fiscalite" element={<Fiscalite />} />
           <Route path="/experts" element={<Experts />} />
+          <Route path="/communaute" element={<Communaute />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

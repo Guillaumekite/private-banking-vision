@@ -1,6 +1,7 @@
-import { Home, LayoutDashboard, BookOpen, Users, Calculator, X } from "lucide-react";
+import { Home, LayoutDashboard, BookOpen, Users, Calculator, UserCircle, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { NavLink } from "@/components/NavLink";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -8,11 +9,12 @@ interface SidebarProps {
 }
 
 const menuItems = [
-  { icon: Home, label: "Home", active: true },
-  { icon: LayoutDashboard, label: "Dashboard", active: false },
-  { icon: BookOpen, label: "Ressources", active: false },
-  { icon: Users, label: "Communauté", active: false },
-  { icon: Calculator, label: "Simulateur", active: false },
+  { icon: Home, label: "Home", path: "/" },
+  { icon: LayoutDashboard, label: "Dashboard", path: "/dashboard" },
+  { icon: BookOpen, label: "Ressources", path: "/patrimoine" },
+  { icon: Users, label: "Communauté", path: "/communaute" },
+  { icon: Calculator, label: "Simulateur", path: "/investissement" },
+  { icon: UserCircle, label: "Experts", path: "/experts" },
 ];
 
 export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
@@ -45,18 +47,16 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
             {menuItems.map((item) => {
               const Icon = item.icon;
               return (
-                <button
+                <NavLink
                   key={item.label}
-                  className={cn(
-                    "w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all",
-                    item.active
-                      ? "bg-gradient-primary text-primary-foreground shadow-soft"
-                      : "text-muted-foreground hover:bg-muted hover:text-primary"
-                  )}
+                  to={item.path}
+                  onClick={onClose}
+                  className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all text-muted-foreground hover:bg-muted hover:text-primary"
+                  activeClassName="bg-gradient-primary text-primary-foreground shadow-soft"
                 >
                   <Icon className="w-5 h-5" />
                   <span>{item.label}</span>
-                </button>
+                </NavLink>
               );
             })}
           </nav>
